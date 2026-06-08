@@ -28,15 +28,15 @@ const ICONS = {
 // Save the attached photos to public/systems/ with these exact filenames.
 const SYSTEM_IMAGES = {
   scout: {
-    src: "/systems/client-scout.png",
+    src: "/systems/Yantrix_Client_Scout_3200x1800.avif",
     alt: "Yantrix Client Scout dashboard — scored lead pipeline with ICP match and source transparency",
   },
   hire: {
-    src: "/systems/hiring-screener.png",
+    src: "/systems/Yantrix_AI_Hiring_Screener.avif",
     alt: "AI Hiring Screener dashboard — candidate scorecards, skill match, and AI interview summary",
   },
   call: {
-    src: "/systems/calling-agent.png",
+    src: "/systems/Yantrix_AI_Calling_Assistant.avif",
     alt: "AI Calling Agent dashboard — live call transcript, post-call summary, and CRM sync",
   },
 } as const;
@@ -172,7 +172,7 @@ export function SystemsSection() {
                     alt={SYSTEM_IMAGES[current.id].alt}
                     fill
                     sizes="(max-width: 1024px) 100vw, 58vw"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                     priority={current.id === "scout"}
                   />
                 </div>

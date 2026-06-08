@@ -8,6 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CASES } from "@/lib/site-data";
 import { SectionEyebrow } from "./services-section";
+import { LeadPipelineOutcome } from "../outcomes/LeadPipelineOutcome";
+import { HiringFunnelOutcome } from "../outcomes/HiringFunnelOutcome";
+import { OpsReportOutcome } from "../outcomes/OpsReportOutcome";
 
 const container = {
   hidden: { opacity: 0 },
@@ -39,8 +42,8 @@ export function CasesSection() {
           >
             <SectionEyebrow>Case studies</SectionEyebrow>
             <h2 className="mt-3 text-balance font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-              What our{" "}
-              <span className="italic text-brand">systems unlock.</span>
+              Real outcomes.{" "}
+              <span className="italic text-brand">Specific numbers.</span>
             </h2>
           </motion.div>
           <motion.p
@@ -50,8 +53,8 @@ export function CasesSection() {
             transition={{ delay: 0.1 }}
             className="lg:col-span-5 text-muted-foreground lg:pb-2 lg:text-right"
           >
-            Behind every system is a clear story: a painful bottleneck, a
-            targeted solution, and a measurable improvement.
+            Every case below is a sample of what a Yantrix system deployment produces.
+            No vanity metrics — only the numbers that move a business.
           </motion.p>
         </div>
 
@@ -93,35 +96,31 @@ export function CasesSection() {
                     </span>
                   </div>
 
-                  {/* Visual - Mock dashboard */}
-                  <div className="relative aspect-[5/3] w-full overflow-hidden bg-background/50">
+                  {/* Visual - Premium Outcome Component */}
+                  <div className="relative h-[450px] w-full overflow-hidden bg-background/50">
                     <div className="absolute inset-0 grid-bg opacity-30" />
-                    <CaseVisual index={i} />
+                    <div className="absolute inset-0">
+                      {i === 0 && <LeadPipelineOutcome />}
+                      {i === 1 && <HiringFunnelOutcome />}
+                      {i === 2 && <OpsReportOutcome />}
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <h3 className="font-display text-xl tracking-tight sm:text-2xl">
                       {c.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-3">
                       {c.body}
                     </p>
 
-                    <div className="mt-5 flex items-center justify-between border-t border-border/60 pt-4">
-                      <div>
-                        <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/45">
-                          Sample outcome
-                        </div>
-                        <div className="mt-1 font-display text-lg tracking-tight text-brand">
-                          {c.metric}
-                        </div>
-                      </div>
+                    <div className="mt-6 border-t border-border/60 pt-4">
                       <Link
-                        href="#systems"
-                        className="flex items-center gap-1 text-sm text-foreground/60 transition-colors hover:text-foreground"
+                        href="/notebook"
+                        className="inline-flex items-center gap-1 text-sm text-foreground/60 transition-colors hover:text-foreground"
                       >
-                        View case
+                        View case study
                         <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </Link>
                     </div>
@@ -144,7 +143,7 @@ export function CasesSection() {
             variant="ghost"
             className="-ml-3 rounded-full transition-all hover:scale-[1.03]"
           >
-            <Link href="#systems">
+            <Link href="/notebook">
               View detailed case studies <ArrowUpRight className="size-4" />
             </Link>
           </Button>
@@ -154,65 +153,4 @@ export function CasesSection() {
   );
 }
 
-function CaseVisual({ index }: { index: number }) {
-  if (index === 0) {
-    // Bar chart
-    return (
-      <div className="absolute inset-0 flex items-end gap-1.5 p-4">
-        {[40, 65, 50, 80, 70, 95, 85].map((h, i) => (
-          <motion.div
-            key={i}
-            initial={{ height: 0 }}
-            whileInView={{ height: `${h}%` }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.06, duration: 0.7 }}
-            className="flex-1 rounded-sm bg-gradient-to-t from-brand/60 to-brand/20"
-          />
-        ))}
-      </div>
-    );
-  }
-  if (index === 1) {
-    // Candidate cards
-    return (
-      <div className="absolute inset-0 flex flex-col gap-1.5 p-4">
-        {[1, 2, 3, 4].map((i) => (
-          <motion.div
-            key={i}
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="origin-left rounded-md border border-border/60 bg-background/80 px-3 py-1.5 text-[10px] font-mono text-foreground/60"
-          >
-            <span className="text-foreground/80">
-              Candidate · {String(i).padStart(2, "0")}
-            </span>
-            <span
-              className={`ml-2 ${i % 2 === 0 ? "text-brand" : "text-foreground/40"}`}
-            >
-              {i % 2 === 0 ? "surfaced" : "queued"}
-            </span>
-          </motion.div>
-        ))}
-      </div>
-    );
-  }
-  // Grid of dots/blocks
-  return (
-    <div className="absolute inset-0 grid grid-cols-4 gap-2 p-4">
-      {Array.from({ length: 12 }).map((_, i) => (
-        <motion.div
-          key={i}
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.03, duration: 0.4 }}
-          className={`rounded-md border border-border/60 ${
-            i % 4 === 0 ? "bg-brand/30" : "bg-background/60"
-          }`}
-        />
-      ))}
-    </div>
-  );
-}
+

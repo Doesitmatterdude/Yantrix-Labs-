@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ServicesScene } from "@/components/hero-3d/spline-services-dynamic";
+import Image from "next/image";
 
 export function ServicesSection() {
   return (
@@ -39,9 +39,6 @@ export function ServicesSection() {
           </motion.div>
         </div>
 
-        {/* 3D Spline scene — replaces the three previous bento cards.
-            Desktop only; on mobile/tablet a clean static visual stands in
-            so the section never feels empty. */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,11 +46,17 @@ export function ServicesSection() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-3xl">
-            {/* The 3D scene container — responsive aspect ratios for all devices */}
-            <div className="relative aspect-[4/3] w-full sm:aspect-[16/10] lg:aspect-[16/8.5]">
-              {/* 3D Spline scene — renders on all devices now */}
-              <ServicesScene />
+          <div className="relative overflow-hidden rounded-3xl border border-foreground/10 bg-background/5 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.3)]">
+            <div className="relative aspect-[4/3] w-full">
+              <Image 
+                src="/images/yantrix-systems.avif" 
+                alt="Yantrix Systems Infrastructure" 
+                fill 
+                className="object-cover object-center"
+                sizes="(max-width: 1200px) 100vw, 1152px"
+              />
+              {/* Inner shadow for depth */}
+              <div className="pointer-events-none absolute inset-0 rounded-3xl shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_20px_rgba(0,0,0,0.4)]" />
             </div>
           </div>
         </motion.div>

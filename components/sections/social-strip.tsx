@@ -5,11 +5,22 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Twitter,
   ArrowUpRight,
 } from "lucide-react";
 import { SectionEyebrow } from "./services-section";
 import { SOCIAL_LINKS } from "@/lib/site-data";
+
+// Custom X logo to replace the old Twitter bird
+const XLogo = ({ className, ...props }: React.ComponentProps<"svg">) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    {...props}
+  >
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+  </svg>
+);
 
 const SOCIALS = [
   {
@@ -43,14 +54,15 @@ const SOCIALS = [
     hoverIcon: "group-hover:text-blue-500",
   },
   {
-    icon: Twitter,
+    icon: XLogo,
     name: "X",
     handle: "@yantrixlabs",
     desc: "Fast notes on AI systems, product thinking, and what we are shipping.",
     href: SOCIAL_LINKS.twitter,
-    hoverBg: "group-hover:bg-foreground/10",
-    hoverBorder: "group-hover:border-foreground/30",
-    hoverIcon: "group-hover:text-foreground",
+    // Graphite / Faded Black treatment for X
+    hoverBg: "dark:group-hover:bg-zinc-800/30 group-hover:bg-zinc-900/5",
+    hoverBorder: "dark:group-hover:border-zinc-700/60 group-hover:border-zinc-900/20",
+    hoverIcon: "group-hover:border-black group-hover:text-black dark:group-hover:border-white dark:group-hover:text-white",
   },
 ];
 

@@ -8,6 +8,7 @@ import {
   Twitter,
   ArrowUpRight,
   MapPin,
+  Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BrandLogoMark } from "@/components/brand-logo";
@@ -51,7 +52,7 @@ export function SiteFooter() {
   return (
     <footer className="relative border-t border-border/60 bg-background pt-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid grid-cols-1 gap-10 pb-12 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-10 pb-12 lg:pb-16 lg:grid-cols-12">
           {/* Brand column */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-2">
@@ -72,28 +73,25 @@ export function SiteFooter() {
               </Link>
             </Button>
 
-            <div className="mt-6 flex items-start gap-2 font-mono text-xs text-foreground/55">
-              <MapPin className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
-              <address className="not-italic">
-                Yantrix Labs, Corporate Tower,
-                <br />C Scheme, Jaipur, India
-              </address>
-            </div>
-
-            {/* Social icons */}
-            <div className="mt-5 flex items-center gap-1">
-              {SOCIAL_ICONS.map((s) => (
-                <Link
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={s.label}
-                  className="group grid size-10 place-items-center rounded-full text-foreground/60 transition-colors hover:bg-secondary hover:text-foreground"
-                >
-                  <s.icon className="size-4" strokeWidth={1.5} />
-                </Link>
-              ))}
+            <div className="mt-8 flex flex-col gap-5 font-mono text-xs text-foreground/55">
+              {/* Location */}
+              <div className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
+                <address className="not-italic leading-[1.6]">
+                  4th Floor, City Corporate Tower,
+                  <br />Malviya Marg, C Scheme, Ashok Nagar,
+                  <br />Jaipur, Rajasthan, India — Pincode: 302021
+                </address>
+              </div>
+              
+              {/* Phone Numbers */}
+              <div className="flex items-start gap-2.5">
+                <Phone className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
+                <div className="flex flex-col gap-2 pt-0.5">
+                  <a href="tel:+919829842694" className="hover:text-foreground transition-colors">+91-9829842694</a>
+                  <a href="tel:+919251111358" className="hover:text-foreground transition-colors">+91-9251111358</a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -124,22 +122,12 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Big logotype */}
-        <div className="border-t border-border/60 py-10">
-          <div
-            aria-hidden
-            className="select-none text-center font-display text-[16vw] leading-none tracking-tight text-brand"
-          >
-            Yantrix
-          </div>
-        </div>
-
-        {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/60 py-5 sm:flex-row">
-          <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/55">
+        {/* Minimal Bottom Bar */}
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 py-6 sm:flex-row">
+          <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground/60">
             © {new Date().getFullYear()} Yantrix Labs. All rights reserved.
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1.5">
             {SOCIAL_ICONS.map((s) => (
               <Link
                 key={s.label}
@@ -147,7 +135,7 @@ export function SiteFooter() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={s.label}
-                className="group grid size-9 place-items-center rounded-full text-foreground/60 transition-colors hover:bg-secondary hover:text-foreground"
+                className="group grid size-9 place-items-center rounded-full text-foreground/50 transition-all hover:bg-secondary/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <s.icon className="size-4" strokeWidth={1.5} />
               </Link>

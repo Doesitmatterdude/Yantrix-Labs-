@@ -1,12 +1,12 @@
 // Contact details — single source of truth
-export const WHATSAPP_NUMBER = "919829842694";
+export const WHATSAPP_NUMBER = "919251111358";
 export const WHATSAPP_MESSAGE = encodeURIComponent(
-  "Hi Yantrix Labs, I'd like to book a free website & AI audit.",
+  "Hello! I'm interested in your services",
 );
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 
 export const CONTACT_EMAIL = "hello@yantrixlabs.studio";
-export const CONTACT_PHONE_DISPLAY = "+91 98298 42694";
+export const CONTACT_PHONE_DISPLAY = "+91 92511 11358";
 
 export const ADDRESS = {
   full: "Yantrix Labs, Corporate Tower, C Scheme, Jaipur, India",
@@ -16,7 +16,7 @@ export const ADDRESS = {
   country: "India",
   countryCode: "IN",
   // Used only for SEO / structured data — not rendered on the frontend
-  mapsUrl: "https://maps.app.goo.gl/v9ZuX9wMhSLtzVt5A?g_st=ac",
+  mapsUrl: "https://maps.app.goo.gl/rs4tjoxWJun2ekp46?g_st=ac",
 };
 
 // Social links
@@ -33,7 +33,7 @@ export const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "AI Systems", href: "#systems" },
   { label: "Case Studies", href: "#cases" },
-  { label: "Notebook", href: "#notebook" },
+  { label: "Notebook", href: "/notebook" },
   { label: "About", href: "#about" },
 ];
 
@@ -141,21 +141,21 @@ export const CASES = [
   {
     tag: "B2B Agency",
     title: "Lead engine rebuilt around intent",
-    body: "A B2B marketing agency targeting SaaS founders replaced generic lead lists with a tailored Client Scout deployment plus a modernized landing experience.",
+    body: "A B2B SaaS agency replaced spray-and-pray lead lists with a targeted Client Scout deployment. Qualified pipeline replaced volume within 3 weeks.",
     metric: "Sample outcome",
     accent: "brand",
   },
   {
     tag: "Product Co.",
     title: "Hiring funnel that runs while you sleep",
-    body: "A growing product company rolled out AI Hiring Screener with a custom scorecard tuned to their culture and technical bar — recruiters now only see serious candidates.",
+    body: "A 40-person product company rolled out AI Hiring Screener tuned to their technical bar. Recruiters now only review candidates who've already passed an AI-driven screen.",
     metric: "Sample outcome",
     accent: "cool",
   },
   {
     tag: "Services Firm",
     title: "Follow-ups that actually follow up",
-    body: "A services business combined AI Calling Assistant with CRM and billing automations to handle confirmations, reminders, and invoices on autopilot.",
+    body: "A professional services firm plugged in AI Calling Assistant with CRM and billing hooks. No-shows dropped. Revenue per staff hour climbed.",
     metric: "Sample outcome",
     accent: "brand",
   },
@@ -163,6 +163,7 @@ export const CASES = [
 
 export const POSTS = [
   {
+    slug: "why-most-ai-pilots-never-reach-production",
     chip: "AI Systems",
     readTime: "8 min",
     title: "Why most AI pilots never reach production",
@@ -171,6 +172,7 @@ export const POSTS = [
     color: "amber",
   },
   {
+    slug: "automations-that-compound-not-just-save-time",
     chip: "Operations",
     readTime: "6 min",
     title: "Automations that compound, not just save time",
@@ -179,6 +181,7 @@ export const POSTS = [
     color: "blue",
   },
   {
+    slug: "what-a-modern-marketing-site-actually-looks-like",
     chip: "Modern Web",
     readTime: "5 min",
     title: "What a modern marketing site actually looks like",

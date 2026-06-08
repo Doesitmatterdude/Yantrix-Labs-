@@ -86,50 +86,52 @@ export function NotebookSection() {
                 variants={item}
                 whileHover={{ y: -4 }}
               >
-                <Card className="group flex h-full flex-col overflow-hidden border-border/60 bg-card transition-all hover:border-brand/40 hover:shadow-[0_16px_40px_-20px_var(--brand)]">
-                  {/* Gradient header */}
-                  <div
-                    className={`relative h-32 bg-gradient-to-br ${gradient} transition-all group-hover:brightness-110`}
-                  >
-                    <div className="absolute inset-0 grid-bg opacity-20" />
-                    <div className="absolute inset-0 flex items-center justify-between p-5">
-                      <Badge
-                        variant="outline"
-                        className="rounded-full border-foreground/20 bg-background/50 font-mono text-[10px] font-normal uppercase tracking-[0.16em] text-foreground/80 backdrop-blur"
-                      >
-                        {p.chip}
-                      </Badge>
-                      <Icon
-                        className="size-10 text-foreground/20"
-                        strokeWidth={1}
-                      />
+                <Link href={`/notebook/${p.slug}`} className="block h-full">
+                  <Card className="group flex h-full flex-col overflow-hidden border-border/60 bg-card transition-all hover:border-brand/40 hover:shadow-[0_16px_40px_-20px_var(--brand)]">
+                    {/* Gradient header */}
+                    <div
+                      className={`relative h-32 bg-gradient-to-br ${gradient} transition-all group-hover:brightness-110`}
+                    >
+                      <div className="absolute inset-0 grid-bg opacity-20" />
+                      <div className="absolute inset-0 flex items-center justify-between p-5">
+                        <Badge
+                          variant="outline"
+                          className="rounded-full border-foreground/20 bg-background/50 font-mono text-[10px] font-normal uppercase tracking-[0.16em] text-foreground/80 backdrop-blur"
+                        >
+                          {p.chip}
+                        </Badge>
+                        <Icon
+                          className="size-10 text-foreground/20"
+                          strokeWidth={1}
+                        />
+                      </div>
+                      {/* Large abstract number */}
+                      <div className="absolute bottom-2 right-4 font-display text-5xl font-bold text-foreground/[0.06]">
+                        0{i + 1}
+                      </div>
                     </div>
-                    {/* Large abstract number */}
-                    <div className="absolute bottom-2 right-4 font-display text-5xl font-bold text-foreground/[0.06]">
-                      0{i + 1}
-                    </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="flex flex-1 flex-col gap-4 p-6">
-                    <h3 className="font-display text-xl leading-snug tracking-tight line-clamp-2">
-                      {p.title}
-                    </h3>
-                    <p className="flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                      {p.excerpt}
-                    </p>
+                    {/* Content */}
+                    <div className="flex flex-1 flex-col gap-4 p-6">
+                      <h3 className="font-display text-xl leading-snug tracking-tight line-clamp-2">
+                        {p.title}
+                      </h3>
+                      <p className="flex-1 text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                        {p.excerpt}
+                      </p>
 
-                    <div className="mt-auto flex items-center justify-between pt-2">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/50">
-                        {p.readTime} read
-                      </span>
-                      <span className="flex items-center gap-1 text-sm text-foreground/60 transition-colors group-hover:text-foreground">
-                        Read article
-                        <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </span>
+                      <div className="mt-auto flex items-center justify-between pt-2">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/50">
+                          {p.readTime} read
+                        </span>
+                        <span className="flex items-center gap-1 text-sm text-foreground/60 transition-colors group-hover:text-foreground">
+                          Read article
+                          <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </Link>
               </motion.article>
             );
           })}
@@ -147,7 +149,7 @@ export function NotebookSection() {
             variant="ghost"
             className="-ml-3 rounded-full transition-all hover:scale-[1.03]"
           >
-            <Link href="#top">
+            <Link href="/notebook">
               Explore all articles <ArrowUpRight className="size-4" />
             </Link>
           </Button>

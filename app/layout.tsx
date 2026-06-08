@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     siteName: "Yantrix Labs",
-    images: ["/brand/yantrix-logo.png"],
+    images: [{ url: "/brand/og-image.png", width: 1200, height: 630, alt: "Yantrix Labs — AI systems your business can actually run on" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     description:
       "AI-native product studio building websites, products, and AI agents that deploy in days, not quarters.",
     creator: "@yantrixlabs",
-    images: ["/brand/yantrix-logo.png"],
+    images: ["/brand/og-image.png"],
   },
   icons: {
     icon: [{ url: "/brand/yantrix-logo.png", type: "image/png" }],

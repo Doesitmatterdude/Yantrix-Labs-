@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { PRINCIPLES } from "@/lib/site-data";
+import { TEAM_MEMBERS } from "@/lib/team";
+
 import { SectionEyebrow } from "./services-section";
 
 export function AboutSection() {
@@ -39,7 +40,7 @@ export function AboutSection() {
       id="about"
       className="relative scroll-mt-24 py-20 sm:py-24"
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16">
         {/* LEFT COLUMN */}
         <div className="lg:col-span-5">
           <motion.div
@@ -86,21 +87,49 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            className="mt-8 flex flex-col items-start gap-4"
           >
-            <div className="flex -space-x-3">
-              {[0, 1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="size-9 rounded-full border-2 border-background ring-1 ring-border"
-                  style={{
-                    background: `conic-gradient(from ${i * 67}deg, var(--brand), var(--brand-cool), var(--brand))`,
-                  }}
-                />
-              ))}
+            <div className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap">
+              {TEAM_MEMBERS.map((member) => {
+                const firstName = member.name.split(" ")[0].toUpperCase();
+                
+                const DESIGNATION_MAP: Record<string, string> = {
+                  "DIVYA": "FOUNDER",
+                  "RAHUL": "CO-FOUNDER",
+                  "PARAG": "DEV",
+                  "ROHIT": "DEV",
+                  "PRIYANSHU": "SALES",
+                };
+
+                const designation = DESIGNATION_MAP[firstName] || "MEMBER";
+
+                return (
+                  <Link
+                    key={member.slug}
+                    href={`/team/${member.slug}`}
+                    className="group flex flex-col items-center gap-2 outline-none"
+                  >
+                    <div className="relative size-12 overflow-hidden rounded-full border-2 border-background ring-1 ring-border transition-all duration-300 group-hover:scale-110 group-hover:ring-brand group-focus-visible:ring-brand">
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="team-avatar absolute inset-0"
+                        loading="lazy"
+                      />
+                    </div>
+                    {/* Vertical Text Swap Label */}
+                    <div className="relative h-3.5 w-full overflow-hidden text-center font-mono text-[9px] tracking-[0.16em] text-muted-foreground transition-colors group-hover:text-foreground group-focus-visible:text-foreground group-active:text-foreground">
+                      <div className="flex flex-col transition-transform duration-300 ease-in-out group-hover:-translate-y-[14px] group-focus-visible:-translate-y-[14px] group-active:-translate-y-[14px]">
+                        <span className="flex h-[14px] items-center justify-center">{firstName}</span>
+                        <span className="flex h-[14px] items-center justify-center font-semibold text-brand">{designation}</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
-            <div className="rounded-full border border-border bg-secondary/50 px-3 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-foreground/60">
-              10 senior makers · Jaipur, India
+            <div className="rounded-full border border-border bg-secondary/50 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/60">
+              5 senior makers · Jaipur, India
             </div>
           </motion.div>
 
@@ -115,47 +144,34 @@ export function AboutSection() {
               variant="ghost"
               className="mt-6 -ml-3 rounded-full text-foreground transition-all hover:scale-[1.03]"
             >
-              <Link href="#top">
+              <Link href="/team">
                 Meet the team <ArrowUpRight className="size-4" />
               </Link>
             </Button>
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN - Principles card with parallax */}
+        {/* RIGHT COLUMN - Principles grid with parallax */}
         <motion.div style={{ y: rightY }} className="lg:col-span-7">
-          <Card className="relative overflow-hidden border-border/60 bg-card p-6 sm:p-8">
-            {/* Background decoration */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full opacity-15 blur-3xl"
-              style={{
-                background:
-                  "radial-gradient(closest-side, var(--brand), transparent)",
-              }}
-            />
-            <div className="absolute inset-0 grid-bg opacity-[0.03]" />
-
-            <div className="relative space-y-6">
-              {PRINCIPLES.map((p, i) => (
-                <motion.div
-                  key={p.n}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-                  className="group flex gap-4"
-                >
-                  <span className="shrink-0 font-mono text-sm text-brand">
-                    {p.n}
-                  </span>
-                  <blockquote className="text-lg font-display tracking-tight text-foreground/90 sm:text-xl lg:text-2xl">
-                    &ldquo;{p.text}&rdquo;
-                  </blockquote>
-                </motion.div>
-              ))}
-            </div>
-          </Card>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {PRINCIPLES.map((p, i) => (
+              <motion.div
+                key={p.n}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border/40 bg-secondary/20 p-6 transition-all duration-300 hover:scale-[1.02] hover:border-brand/50 hover:bg-secondary/30 sm:p-8"
+              >
+                <div className="mb-10 font-mono text-4xl font-light text-brand/80 transition-colors group-hover:text-brand sm:mb-14 sm:text-5xl">
+                  {p.n}
+                </div>
+                <div className="text-pretty text-base font-medium leading-snug text-foreground/80 group-hover:text-foreground">
+                  {p.text}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
