@@ -7,12 +7,18 @@ import { SoundSystem } from "@/components/sound-system";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL.startsWith("http")
+    ? process.env.NEXT_PUBLIC_SITE_URL
+    : `https://${process.env.NEXT_PUBLIC_SITE_URL}`
+  : "https://www.yantrixlabs.studio";
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Yantrix Labs",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio",
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio"}/brand/yantrix-logo.png`,
+  url: baseUrl,
+  logo: `${baseUrl}/brand/yantrix-logo.png`,
   description:
     "AI-native product studio building modern websites, products, and AI systems that deploy in days, not quarters.",
   address: {
@@ -66,9 +72,7 @@ export const metadata: Metadata = {
   title: "Yantrix Labs — AI systems your business can actually run on",
   description:
     "Yantrix Labs is an AI-native product studio in Jaipur, India. We design and ship modern websites, products, and AI systems that deploy in days, not quarters.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio",
-  ),
+  metadataBase: new URL(baseUrl),
   keywords: [
     "AI development studio",
     "web development India",
