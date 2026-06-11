@@ -26,7 +26,7 @@ export async function generateMetadata({
   if (!article) return {};
 
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://yantrixlabs.com";
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio";
   const url = `${siteUrl}/notebook/${article.slug}`;
 
   return {

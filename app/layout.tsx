@@ -4,14 +4,15 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { CustomCursor } from "@/components/custom-cursor";
 import { SoundSystem } from "@/components/sound-system";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Yantrix Labs",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://yantrixlabs.com",
-  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://yantrixlabs.com"}/brand/yantrix-logo.png`,
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio",
+  logo: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio"}/brand/yantrix-logo.png`,
   description:
     "AI-native product studio building modern websites, products, and AI systems that deploy in days, not quarters.",
   address: {
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
   description:
     "Yantrix Labs is an AI-native product studio in Jaipur, India. We design and ship modern websites, products, and AI systems that deploy in days, not quarters.",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://yantrixlabs.com",
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio",
   ),
   keywords: [
     "AI development studio",
@@ -143,6 +144,7 @@ export default function RootLayout({
           <CustomCursor />
           <SoundSystem />
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

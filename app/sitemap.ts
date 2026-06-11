@@ -3,7 +3,7 @@ import { ARTICLES } from "@/lib/articles"
 import { TEAM_MEMBERS } from "@/lib/team"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yantrixlabs.com"
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.yantrixlabs.studio"
 
   const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((article) => ({
     url: `${baseUrl}/notebook/${article.slug}`,
