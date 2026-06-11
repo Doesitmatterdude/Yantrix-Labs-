@@ -1,16 +1,18 @@
-import type { MetadataRoute } from "next"
+import type { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yantrixlabs.com"
-
   return {
     rules: [
       {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/"],
+        userAgent: '*',
+        allow: '/',
+        disallow: '/api/',
+      },
+      {
+        userAgent: ['Googlebot', 'Bingbot', 'GPTBot', 'ChatGPT-User', 'ClaudeBot', 'PerplexityBot', 'OAI-SearchBot'],
+        allow: '/',
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: 'https://www.yantrixlabs.studio/sitemap.xml',
   }
 }
