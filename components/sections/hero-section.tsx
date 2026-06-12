@@ -32,7 +32,7 @@ export function HeroSection() {
     <section
       ref={ref}
       id="top"
-      className="relative isolate min-h-fit overflow-hidden pt-24 pb-12 sm:pt-32 sm:pb-20 md:min-h-[90svh]"
+      className="relative isolate min-h-fit overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24 md:pt-40 md:pb-32 lg:min-h-[85svh] flex flex-col justify-center"
     >
       {/* Animated mesh gradient background */}
       <motion.div
@@ -73,11 +73,11 @@ export function HeroSection() {
         />
       </motion.div>
 
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-12 lg:gap-12">
-        {/* LEFT COLUMN - Copy */}
+      <div className="mx-auto w-full max-w-4xl px-4 sm:px-6">
+        {/* Copy */}
         <motion.div
           style={isDesktop ? { y, opacity } : undefined}
-          className="flex flex-col justify-center lg:col-span-7 lg:py-8"
+          className="flex flex-col items-start lg:items-center lg:text-center"
         >
           {/* Kicker badge with glow animation - Desktop Only */}
           {isDesktop && (
@@ -101,7 +101,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className={`text-balance font-display text-5xl font-normal leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl ${isDesktop ? 'mt-7' : 'mt-0'}`}
+            className={`text-balance font-display text-5xl font-normal leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl lg:leading-[1.1] ${isDesktop ? 'mt-8' : 'mt-0'}`}
           >
             We build{" "}
             <span className="relative inline-block">
@@ -121,7 +121,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-6 max-w-[58ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
+            className="mt-6 max-w-[58ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl lg:max-w-[65ch]"
           >
             Yantrix Labs is an AI-native product studio based in Jaipur, India, specializing in B2B AI automation. We design, build, and deploy custom AI agents, lead intelligence systems, and operational copilots for startups and enterprises, typically shipping production-ready systems in under three weeks.
           </motion.p>
@@ -131,16 +131,16 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center"
+            className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center lg:justify-center"
           >
             <Button
               asChild
               size="lg"
-              className="group h-12 w-full sm:w-auto rounded-full bg-foreground px-6 text-background shadow-[0_8px_24px_-8px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_16px_40px_-8px_var(--brand)]"
+              className="group h-12 w-full sm:w-auto rounded-full bg-foreground px-6 text-background shadow-[0_8px_24px_-8px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_16px_40px_-8px_var(--brand)] lg:h-14 lg:px-8 lg:text-base"
             >
               <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer" data-event="book_ai_audit">
                 Book a free website &amp; AI audit
-                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="size-4 lg:size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </Button>
             {isDesktop && (
@@ -148,11 +148,11 @@ export function HeroSection() {
                 asChild
                 variant="ghost"
                 size="lg"
-                className="group h-12 rounded-full px-5 text-foreground/80 transition-all hover:scale-[1.03] hover:bg-secondary"
+                className="group h-12 lg:h-14 rounded-full px-5 lg:px-7 text-foreground/80 lg:text-base transition-all hover:scale-[1.03] hover:bg-secondary"
               >
                 <Link href="#services">
                   Explore what we build
-                  <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" />
+                  <ArrowDown className="size-4 lg:size-5 transition-transform group-hover:translate-y-0.5" />
                 </Link>
               </Button>
             )}
@@ -164,10 +164,10 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-6"
+              className="mt-8 lg:mt-10"
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/50 px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] text-foreground/70 backdrop-blur animate-float">
-                <Zap className="size-3.5 text-brand" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/50 px-4 py-2 lg:px-5 lg:py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-foreground/70 backdrop-blur animate-float">
+                <Zap className="size-3.5 lg:size-4 text-brand" />
                 Rapid deployment — days, not quarters
               </div>
             </motion.div>
@@ -178,7 +178,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground"
+            className="mt-10 lg:mt-12 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-center lg:text-base"
           >
             {[
               "Senior 5-person team",
@@ -186,7 +186,7 @@ export function HeroSection() {
               "Pre-built systems ready",
             ].map((item) => (
               <li key={item} className="flex items-center gap-2">
-                <span className="size-1.5 rounded-full bg-brand" />
+                <span className="size-1.5 lg:size-2 rounded-full bg-brand" />
                 {item}
               </li>
             ))}
@@ -196,38 +196,11 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-4 font-mono text-xs uppercase tracking-[0.18em] text-foreground/50"
+            className="mt-5 lg:mt-6 font-mono text-xs uppercase tracking-[0.18em] text-foreground/50 lg:text-sm"
           >
             Based in Jaipur, India · Working with teams worldwide
           </motion.p>
         </motion.div>
-
-        {/* RIGHT COLUMN - Video Media Area - Desktop Only */}
-        {isDesktop && (
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative lg:col-span-5 flex items-center"
-          >
-            <div className="relative w-full aspect-video lg:aspect-[4/5] overflow-hidden rounded-3xl border border-foreground/10 bg-foreground/5 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.3)]">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                className="absolute inset-0 size-full object-cover"
-              >
-                <source src="/videos/yantrix-hero.webm" type="video/webm" />
-                <source src="/videos/yantrix-hero.mp4" type="video/mp4" />
-              </video>
-              
-              {/* Subtle inner shadow for depth */}
-              <div className="pointer-events-none absolute inset-0 rounded-3xl shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_20px_rgba(0,0,0,0.4)]" />
-            </div>
-          </motion.div>
-        )}
       </div>
     </section>
   );
