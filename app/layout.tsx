@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { CustomCursor } from "@/components/custom-cursor";
 import { SoundSystem } from "@/components/sound-system";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
