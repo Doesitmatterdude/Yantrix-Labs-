@@ -254,6 +254,32 @@ export default async function ArticlePage({
           </div>
         </nav>
       )}
+
+      {/* BlogPosting Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": article.metaTitle,
+            "description": article.metaDescription,
+            "url": `https://www.yantrixlabs.studio/notebook/${article.slug}`,
+            "datePublished": "2025-06-01",
+            "dateModified": "2026-06-01",
+            "author": {
+              "@type": "Person",
+              "name": "Divya Bhatia",
+              "url": "https://www.yantrixlabs.studio/team/founder-partner"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Yantrix Labs",
+              "url": "https://www.yantrixlabs.studio"
+            }
+          })
+        }}
+      />
     </main>
   );
 }

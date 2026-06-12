@@ -80,7 +80,7 @@ export function SiteFooter() {
                 <address className="not-italic leading-[1.6]">
                   4th Floor, City Corporate Tower,
                   <br />Malviya Marg, C Scheme, Ashok Nagar,
-                  <br />Jaipur, Rajasthan, India — Pincode: 302021
+                  <br />Jaipur, Rajasthan, India — Pincode: 302001
                 </address>
               </div>
               
