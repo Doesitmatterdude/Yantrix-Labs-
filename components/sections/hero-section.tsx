@@ -123,9 +123,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-6 max-w-[58ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Yantrix Labs designs and ships AI-powered websites, products, and
-            automations that deploy in days, not quarters — engineered around
-            how your teams actually work.
+            Yantrix Labs is an AI-native product studio based in Jaipur, India, specializing in B2B AI automation. We design, build, and deploy custom AI agents, lead intelligence systems, and operational copilots for startups and enterprises, typically shipping production-ready systems in under three weeks.
           </motion.p>
 
           {/* CTAs */}
@@ -140,7 +138,7 @@ export function HeroSection() {
               size="lg"
               className="group h-12 w-full sm:w-auto rounded-full bg-foreground px-6 text-background shadow-[0_8px_24px_-8px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_16px_40px_-8px_var(--brand)]"
             >
-              <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+              <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer" data-event="book_ai_audit">
                 Book a free website &amp; AI audit
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>

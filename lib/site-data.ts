@@ -106,7 +106,7 @@ export const SYSTEMS = [
     name: "AI Hiring Screener",
     chip: "Recruiting ops",
     description:
-      "Automates the first layer of candidate evaluation. Collects answers, applies your scorecard, and surfaces only the applicants who fit your skills, experience, and culture requirements — freeing recruiters from repetitive screening.",
+      "We deployed our AI Hiring Screener for a 40-person product company to automate their backend engineer funnel. The result was an 87% reduction in recruiter time, as the system ensured that only candidates who passed the AI-driven technical screen reached a human reviewer. This system runs while you sleep, ensuring zero unqualified candidates reach your final interview stage.",
     outcomes: [
       "Custom scorecard tuned to your bar",
       "Candidates evaluated around the clock",
@@ -141,7 +141,7 @@ export const CASES = [
   {
     tag: "B2B Agency",
     title: "Lead engine rebuilt around intent",
-    body: "A B2B SaaS agency replaced spray-and-pray lead lists with a targeted Client Scout deployment. Qualified pipeline replaced volume within 3 weeks.",
+    body: "We recently worked with a B2B SaaS agency to replace their volume-heavy lead lists with our targeted Client Scout system. Within three weeks, they shifted from \"spray-and-pray\" outreach to a pipeline focused entirely on intent. We reviewed 247 potential leads and qualified 31 high-intent prospects, resulting in a 4.2× lift in their qualified pipeline and reducing their time to close to just 18 days.",
     metric: "Sample outcome",
     accent: "brand",
   },
@@ -187,6 +187,30 @@ export const POSTS = [
     title: "What a modern marketing site actually looks like",
     excerpt:
       "From rendering strategy to interaction language — the patterns we ship when a brand is overdue for an upgrade.",
+    color: "teal",
+  },
+  {
+    slug: "ai-automation-agency-jaipur",
+    chip: "Commercial",
+    readTime: "4 min",
+    title: "AI Automation Agency in Jaipur",
+    excerpt: "Looking for an AI product studio in Jaipur? Here's why local execution matters for global scale.",
+    color: "amber",
+  },
+  {
+    slug: "custom-ai-lead-generation",
+    chip: "Lead Gen",
+    readTime: "5 min",
+    title: "Custom AI Lead Generation",
+    excerpt: "Discover how Client Scout identifies, scores, and qualifies high-intent B2B leads on autopilot.",
+    color: "blue",
+  },
+  {
+    slug: "automate-candidate-screening",
+    chip: "HR Ops",
+    readTime: "4 min",
+    title: "Automate Candidate Screening",
+    excerpt: "How to use an AI Hiring Screener to reduce recruiter review time by 87% without missing top talent.",
     color: "teal",
   },
 ];

@@ -16,41 +16,23 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Yantrix Labs",
-  url: baseUrl,
-  logo: `${baseUrl}/brand/yantrix-logo.png`,
-  description:
-    "AI-native product studio building modern websites, products, and AI systems that deploy in days, not quarters.",
-  address: {
+  "name": "Yantrix Labs",
+  "url": baseUrl,
+  "logo": `${baseUrl}/brand/yantrix-logo.png`,
+  "address": {
     "@type": "PostalAddress",
-    streetAddress: "Corporate Tower, C Scheme",
-    addressLocality: "Jaipur",
-    addressRegion: "Rajasthan",
-    addressCountry: "IN",
+    "streetAddress": "4th Floor, City Corporate Tower, Malviya Marg, C Scheme, Ashok Nagar",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "postalCode": "302001",
+    "addressCountry": "IN"
   },
-  // Google Maps location — kept here for SEO / structured data only
-  hasMap: "https://maps.app.goo.gl/v9ZuX9wMhSLtzVt5A?g_st=ac",
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      email: "hello@yantrixlabs.studio",
-      contactType: "sales",
-      areaServed: "Worldwide",
-    },
-    {
-      "@type": "ContactPoint",
-      telephone: "+91-98298-42694",
-      contactType: "customer service",
-      contactOption: "WhatsApp",
-      areaServed: "Worldwide",
-    },
-  ],
-  sameAs: [
+  "sameAs": [
     "https://www.facebook.com/share/1NLMUWjAZF/",
-    "https://www.instagram.com/yantrix.labs?utm_source=qr&igsh=ZjYwcjhra21pOTNs",
-    "https://www.linkedin.com/in/yantrix-labs-6a1547414?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    "https://twitter.com/yantrixlabs",
-  ],
+    "https://www.instagram.com/yantrix.labs",
+    "https://www.linkedin.com/in/yantrix-labs-6a1547414",
+    "https://twitter.com/yantrixlabs"
+  ]
 };
 
 const geistSans = Geist({

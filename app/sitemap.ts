@@ -25,36 +25,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly",
+      priority: 1.0,
+    },
+    {
+      url: `${baseUrl}/team`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/notebook`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-06-01"),
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.8,
     },
-    ...articleRoutes,
     {
-      url: `${baseUrl}/team`,
-      lastModified: new Date(),
+      url: `${baseUrl}/team/founder-partner`,
+      lastModified: new Date("2026-06-01"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    ...teamRoutes,
+    {
+      url: `${baseUrl}/team/business-partner`,
+      lastModified: new Date("2026-06-01"),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/notebook/why-most-ai-pilots-never-reach-production`,
+      lastModified: new Date("2025-06-01"),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
     {
       url: `${baseUrl}/legal/terms`,
-      lastModified: new Date(),
+      lastModified: new Date("2026-06-01"),
       changeFrequency: "monthly",
-      priority: 0.3,
+      priority: 0.5,
     },
-    {
-      url: `${baseUrl}/legal/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.3,
-    },
+    // Dynamically include other articles and team members not explicitly listed in the master plan
+    ...articleRoutes.filter(route => route.url !== `${baseUrl}/notebook/why-most-ai-pilots-never-reach-production`),
+    ...teamRoutes.filter(route => route.url !== `${baseUrl}/team/founder-partner` && route.url !== `${baseUrl}/team/business-partner`),
   ]
 }
 

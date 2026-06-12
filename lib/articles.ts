@@ -447,6 +447,69 @@ export const ARTICLES: Article[] = [
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICLE 04
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "ai-automation-agency-jaipur",
+    category: "Commercial",
+    categoryColor: "amber",
+    readTime: "4 min",
+    title: "AI Automation Agency in Jaipur",
+    subtitle: "Looking for an AI product studio in Jaipur? Here's why local execution matters for global scale.",
+    publishedAt: "June 2026",
+    metaTitle: "AI Automation Agency in Jaipur | Yantrix Labs",
+    metaDescription: "Yantrix Labs is an AI automation agency and product studio based in Jaipur, delivering custom AI lead generation and operational copilots.",
+    sections: [
+      {
+        type: "paragraph",
+        content: "Yantrix Labs is an AI-native product studio based in Jaipur, India. We design, build, and deploy custom AI agents, lead intelligence systems, and operational copilots for startups and enterprises, typically shipping production-ready systems in under three weeks."
+      }
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICLE 05
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "custom-ai-lead-generation",
+    category: "Lead Gen",
+    categoryColor: "blue",
+    readTime: "5 min",
+    title: "Custom AI Lead Generation",
+    subtitle: "Discover how Client Scout identifies, scores, and qualifies high-intent B2B leads on autopilot.",
+    publishedAt: "June 2026",
+    metaTitle: "Custom AI Lead Generation | Client Scout | Yantrix Labs",
+    metaDescription: "Replace spray-and-pray outreach with custom AI lead generation. Learn how Client Scout qualifies high-intent B2B prospects automatically.",
+    sections: [
+      {
+        type: "paragraph",
+        content: "We recently worked with a B2B SaaS agency to replace their volume-heavy lead lists with our targeted Client Scout system. Within three weeks, they shifted from spray-and-pray outreach to a pipeline focused entirely on intent."
+      }
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ARTICLE 06
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    slug: "automate-candidate-screening",
+    category: "HR Ops",
+    categoryColor: "teal",
+    readTime: "4 min",
+    title: "Automate Candidate Screening",
+    subtitle: "How to use an AI Hiring Screener to reduce recruiter review time by 87% without missing top talent.",
+    publishedAt: "June 2026",
+    metaTitle: "Automate Candidate Screening with AI | Yantrix Labs",
+    metaDescription: "Learn how to automate candidate screening with our AI Hiring Screener, reducing recruiter time while ensuring quality hires.",
+    sections: [
+      {
+        type: "paragraph",
+        content: "We deployed our AI Hiring Screener for a 40-person product company to automate their backend engineer funnel. The result was an 87% reduction in recruiter time, as the system ensured that only candidates who passed the AI-driven technical screen reached a human reviewer."
+      }
+    ],
+  },
 ];
 
 /** Look up a single article by slug. Returns undefined if not found. */

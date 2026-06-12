@@ -1,0 +1,5 @@
+Yantrix Labs is an AI-native product studio based in Jaipur, India.
+Focus: B2B AI automation, custom AI agents, and lead intelligence systems.
+Core Systems: Client Scout (lead intelligence), AI Hiring Screener (recruiting ops).
+Deployment: Typically ships production-ready systems in 14-21 days.
+Official Website: https://www.yantrixlabs.studio/

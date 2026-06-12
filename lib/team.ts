@@ -38,8 +38,8 @@ export const TEAM_MEMBERS: TeamMember[] = [
     department: "LEADERSHIP",
     name: "Rahul Dhariwal",
     tagline: "The person who makes sure the work lands with clients.",
-    bio: "Placeholder bio — drives client relationships, strategy, and business development.",
-    skills: ["Client Strategy", "Business Development", "Operations", "Partnerships"],
+    bio: "Rahul is the Co-Founder of Yantrix Labs and the person who makes sure our technical work lands successfully with clients. He bridges the gap between complex engineering and business strategy, driving client relationships and business development. With a background in full-stack development, Rahul ensures that the AI systems we architect are not just technically sound but are strategically aligned with the growth goals of the startups and B2B teams we serve.",
+    skills: ["Client Strategy & Growth", "Full-Stack Engineering", "Business Development", "Technical Project Management", "Operational Workflow Design"],
     social: { linkedin: "#", twitter: "#" },
     photo: "/images/team/partner.avif"
   },

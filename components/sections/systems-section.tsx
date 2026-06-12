@@ -247,7 +247,7 @@ export function SystemsSection() {
             asChild
             className="shrink-0 rounded-full bg-foreground text-background transition-all hover:scale-[1.03] hover:bg-foreground/90"
           >
-            <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+            <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer" data-event="generate_lead_client_scout">
               <MessageCircle className="size-4" />
               Chat on WhatsApp
             </Link>
