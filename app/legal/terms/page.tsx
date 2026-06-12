@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     "Terms and conditions governing the use of the Yantrix Labs website and engagement with our digital services, web development, and AI systems studio.",
 };
 
+export const dynamic = "force-static";
+
 const SECTIONS = [
   { id: "introduction", number: "01", title: "Introduction" },
   { id: "acceptance", number: "02", title: "Acceptance of Terms" },

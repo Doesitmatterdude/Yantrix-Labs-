@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     "How Yantrix Labs collects, uses, stores, and protects your personal information. A transparent overview of our data practices for website visitors and prospective clients.",
 };
 
+export const dynamic = "force-static";
+
 const SECTIONS = [
   { id: "introduction", number: "01", title: "Introduction" },
   { id: "scope", number: "02", title: "Scope of This Policy" },
