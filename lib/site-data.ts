@@ -34,6 +34,7 @@ export const NAV_LINKS = [
   { label: "Free Audit", href: "/ai-audit" },
   { label: "Notebook", href: "/notebook" },
   { label: "About", href: "/#about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const HERO_NODES = [
