@@ -33,7 +33,7 @@ export const ARTICLES: Article[] = [
     title: "Why most AI pilots never reach production",
     subtitle:
       "An honest breakdown of where AI projects stall — and the short-loop pattern we use to ship into real workflows quickly.",
-    publishedAt: "June 2025",
+    publishedAt: "June 2026",
     metaTitle:
       "Why Most AI Pilots Never Reach Production | Yantrix Labs",
     metaDescription:
@@ -195,7 +195,7 @@ export const ARTICLES: Article[] = [
     title: "Automations that compound, not just save time",
     subtitle:
       "Time-saved is the floor, not the ceiling. Here's how we design AI workflows that reinvest hours into pipeline, retention, and margin.",
-    publishedAt: "June 2025",
+    publishedAt: "June 2026",
     metaTitle:
       "Automations That Compound, Not Just Save Time | Yantrix Labs",
     metaDescription:
@@ -322,7 +322,7 @@ export const ARTICLES: Article[] = [
     title: "What a modern marketing site actually looks like",
     subtitle:
       "From rendering strategy to interaction language — the patterns we ship when a brand is overdue for an upgrade.",
-    publishedAt: "June 2025",
+    publishedAt: "June 2026",
     metaTitle:
       "What a Modern Marketing Site Actually Looks Like | Yantrix Labs",
     metaDescription:
