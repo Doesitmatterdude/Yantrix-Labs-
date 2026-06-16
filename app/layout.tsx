@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
-import { CustomCursor } from "@/components/custom-cursor";
 import { SoundSystem } from "@/components/sound-system";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
@@ -154,7 +153,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ScrollProgress />
-          <CustomCursor />
           <SoundSystem />
           {children}
           <Analytics />
