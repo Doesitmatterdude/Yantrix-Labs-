@@ -124,9 +124,7 @@ export default function NotebookPage() {
             would actually move the needle.
           </p>
           <Link
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noreferrer"
+            href="/ai-audit"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all hover:scale-[1.03] hover:bg-foreground/90"
           >
             Book the free audit

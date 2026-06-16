@@ -76,7 +76,7 @@ export function FinalCta() {
                 size="lg"
                 className="group relative h-14 rounded-full bg-foreground px-7 text-background shadow-[0_8px_24px_-8px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_16px_40px_-8px_var(--brand)]"
               >
-                <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+                <Link href="/ai-audit">
                   <MessageCircle className="size-4" />
                   Book a free website &amp; AI audit
                 </Link>
@@ -89,7 +89,7 @@ export function FinalCta() {
               variant="outline"
               className="h-14 rounded-full border-border bg-background/50 px-7 backdrop-blur transition-all duration-300 hover:scale-[1.03] hover:bg-secondary"
             >
-              <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+              <Link href="/contact">
                 Tell us about your project
                 <ArrowUpRight className="size-4" />
               </Link>

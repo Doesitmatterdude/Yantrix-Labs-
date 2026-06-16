@@ -85,7 +85,7 @@ export function AiAuditCta() {
               variant="outline"
               className="h-14 rounded-full border-border bg-background/50 px-7 backdrop-blur transition-all duration-300 hover:scale-[1.03] hover:bg-secondary"
             >
-              <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+              <Link href="/contact">
                 <MessageCircle className="size-4" />
                 Book a free strategy call
                 <ArrowUpRight className="size-4" />

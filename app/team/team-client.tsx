@@ -253,7 +253,7 @@ export function TeamClient() {
             We occasionally open spots for sharp engineers and operators. If you&apos;re obsessed with making things that actually work, get in touch.
           </p>
           <Button asChild size="lg" className="mt-8 rounded-full">
-            <Link href={WHATSAPP_LINK} target="_blank">
+            <Link href="/contact">
               Send us a message <ArrowUpRight className="ml-2 size-4" />
             </Link>
           </Button>

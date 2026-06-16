@@ -117,7 +117,9 @@ export default function HomePage() {
               "https://www.instagram.com/yantrix.labs/",
               "https://x.com/yantrixlabs",
               "https://www.linkedin.com/company/yantrixlabs",
-              "https://www.facebook.com/yantrixlabs"
+              "https://www.facebook.com/yantrixlabs",
+              "https://www.crunchbase.com/organization/yantrix-labs",
+              "https://www.producthunt.com/@yantrixlabs"
             ],
             "hasOfferCatalog": {
               "@type": "OfferCatalog",

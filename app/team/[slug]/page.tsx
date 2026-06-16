@@ -190,7 +190,7 @@ export default async function TeamMemberPage({
                 <>
                   <h3 className="font-display text-2xl tracking-tight">{member.sidebarTitle || "How we bring Yantrix to new clients"}</h3>
                   <p className="mt-3 text-sm text-muted-foreground">{member.sidebarDescription || "The best way to see what we can do is to talk about your specific workflow."}</p>
-                  <Link href={WHATSAPP_LINK} target="_blank" className="mt-6 inline-flex items-center gap-2 text-sm text-brand hover:underline">
+                  <Link href="/ai-audit" className="mt-6 inline-flex items-center gap-2 text-sm text-brand hover:underline">
                     Get a free audit <ArrowUpRight className="size-4" />
                   </Link>
                 </>
@@ -208,7 +208,7 @@ export default async function TeamMemberPage({
         </h2>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button asChild size="lg" className="rounded-full">
-            <Link href={WHATSAPP_LINK} target="_blank">
+            <Link href="/contact">
               Start a conversation <ArrowUpRight className="ml-2 size-4" />
             </Link>
           </Button>

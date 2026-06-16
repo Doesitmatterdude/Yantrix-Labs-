@@ -248,9 +248,7 @@ export function AiAuditPreview() {
                   className="shrink-0 rounded-full bg-foreground text-background transition-all hover:scale-[1.03] hover:bg-foreground/90"
                 >
                   <Link
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noreferrer"
+                    href="/contact"
                   >
                     Book strategy call
                     <ArrowUpRight className="ml-1.5 size-3.5" />
