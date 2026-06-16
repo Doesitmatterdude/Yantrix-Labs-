@@ -280,7 +280,7 @@ export function AiAuditHero() {
               <input
                 type="text"
                 placeholder="yourbusiness.com"
-                className="h-14 flex-1 bg-transparent px-5 text-base text-foreground placeholder:text-foreground/30 outline-none"
+                className="h-14 min-w-0 flex-1 bg-transparent px-4 sm:px-5 text-base text-foreground placeholder:text-foreground/30 outline-none"
                 value={url}
                 onChange={(e) => {
                   setUrl(e.target.value);
@@ -291,7 +291,7 @@ export function AiAuditHero() {
               <Button
                 type="submit"
                 disabled={auditState !== "idle"}
-                className="mr-1.5 h-11 rounded-full bg-foreground px-4 sm:px-6 text-sm font-medium text-background shadow-[0_4px_12px_-4px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_8px_24px_-8px_var(--brand)] disabled:opacity-50"
+                className="mr-1.5 shrink-0 h-11 rounded-full bg-foreground px-4 sm:px-6 text-sm font-medium text-background shadow-[0_4px_12px_-4px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_8px_24px_-8px_var(--brand)] disabled:opacity-50"
               >
                 Analyze
                 <ArrowRight className="ml-1.5 size-3.5" />
