@@ -23,6 +23,8 @@ export const ADDRESS = {
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/yantrix.labs/",
   twitter: "https://x.com/yantrixlabs",
+  facebook: "https://facebook.com/yantrixlabs",
+  linkedin: "https://linkedin.com/company/yantrixlabs",
 };
 
 export const NAV_LINKS = [

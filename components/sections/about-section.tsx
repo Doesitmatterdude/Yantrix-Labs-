@@ -100,15 +100,10 @@ export function AboutSection() {
                 const designation = DESIGNATION_MAP[firstName] || "MEMBER";
                 
                 const isClickable = member.slug === "founder-partner" || member.slug === "business-partner";
-                const Wrapper = isClickable ? Link : "div";
-                const props = isClickable ? { href: `/team/${member.slug}` } : {};
-
-                return (
-                  <Wrapper
-                    key={member.slug}
-                    {...props}
-                    className="group flex flex-col items-center gap-2 outline-none"
-                  >
+                const commonClassName = "group flex flex-col items-center gap-2 outline-none";
+                
+                const content = (
+                  <>
                     <div className="relative size-12 overflow-hidden rounded-full border-2 border-background ring-1 ring-border transition-all duration-300 group-hover:scale-110 group-hover:ring-brand group-focus-visible:ring-brand">
                       <img
                         src={member.photo}
@@ -124,7 +119,21 @@ export function AboutSection() {
                         <span className="flex h-[14px] items-center justify-center font-semibold text-brand">{designation}</span>
                       </div>
                     </div>
-                  </Wrapper>
+                  </>
+                );
+
+                if (isClickable) {
+                  return (
+                    <Link key={member.slug} href={`/team/${member.slug}`} className={commonClassName}>
+                      {content}
+                    </Link>
+                  );
+                }
+
+                return (
+                  <div key={member.slug} className={commonClassName}>
+                    {content}
+                  </div>
                 );
               })}
             </div>
