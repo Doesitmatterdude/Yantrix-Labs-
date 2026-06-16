@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { CustomCursor } from "@/components/custom-cursor";
@@ -15,10 +16,12 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "LocalBusiness",
   "name": "Yantrix Labs",
+  "image": "https://yantrixlabs.studio/og-ai-audit.png",
   "url": baseUrl,
-  "logo": `${baseUrl}/brand/yantrix-logo.png`,
+  "telephone": "+91-9829842694",
+  "priceRange": "₹₹",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "4th Floor, City Corporate Tower, Malviya Marg, C Scheme, Ashok Nagar",
@@ -27,11 +30,20 @@ const jsonLd = {
     "postalCode": "302001",
     "addressCountry": "IN"
   },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 26.9124,
+    "longitude": 75.7873
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "09:00",
+    "closes": "19:00"
+  },
   "sameAs": [
-    "https://www.facebook.com/share/1NLMUWjAZF/",
-    "https://www.instagram.com/yantrix.labs",
-    "https://www.linkedin.com/in/yantrix-labs-6a1547414",
-    "https://twitter.com/yantrixlabs"
+    "https://www.instagram.com/yantrix.labs/",
+    "https://x.com/yantrixlabs"
   ]
 };
 
@@ -55,6 +67,9 @@ export const metadata: Metadata = {
   description:
     "Yantrix Labs is an AI-native product studio in Jaipur, India. We design and ship modern websites, products, and AI systems that deploy in days, not quarters.",
   metadataBase: new URL(baseUrl),
+  alternates: {
+    canonical: baseUrl,
+  },
   keywords: [
     "AI development studio",
     "web development India",
@@ -87,6 +102,13 @@ export const metadata: Metadata = {
     icon: [{ url: "/brand/yantrix-logo.png", type: "image/png" }],
     apple: "/brand/yantrix-logo.png",
   },
+  other: {
+    "geo.region": "IN-RJ",
+    "geo.placename": "Jaipur, Rajasthan, India",
+    "geo.position": "26.9124;75.7873",
+    "ICBM": "26.9124, 75.7873",
+    "language": "English",
+  },
 };
 
 export const viewport: Viewport = {
@@ -107,6 +129,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} bg-background`}
     >
+      <head>
+        <link rel="me" href="https://x.com/yantrixlabs" />
+        <link rel="me" href="https://www.instagram.com/yantrix.labs/" />
+      </head>
       <body className="font-sans antialiased">
         {/* Skip to content for accessibility */}
         <a
@@ -116,7 +142,8 @@ export default function RootLayout({
           Skip to content
         </a>
         {/* JSON-LD Structured Data */}
-        <script
+        <Script
+          id="global-json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

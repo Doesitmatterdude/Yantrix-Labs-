@@ -207,6 +207,28 @@ export default async function TeamMemberPage({
         </div>
       </section>
 
+      {/* Person Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": member.name,
+            "jobTitle": member.role,
+            "description": member.bio,
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Yantrix Labs",
+              "url": "https://www.yantrixlabs.studio"
+            },
+            "url": `https://www.yantrixlabs.studio/team/${member.slug}`,
+            "sameAs": member.social 
+              ? Object.values(member.social).filter(link => link && link !== "#")
+              : []
+          })
+        }}
+      />
     </main>
   );
 }

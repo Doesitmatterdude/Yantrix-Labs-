@@ -19,7 +19,7 @@ const COLUMNS = [
     title: "Company",
     links: [
       { label: "About", href: "#about" },
-      { label: "Notebook", href: "#notebook" },
+      { label: "Notebook", href: "/notebook" },
       { label: "Case Studies", href: "#cases" },
       { label: "Contact", href: WHATSAPP_LINK, external: true },
     ],
@@ -42,9 +42,7 @@ const COLUMNS = [
 ];
 
 const SOCIAL_ICONS = [
-  { icon: Facebook, label: "Facebook", href: SOCIAL_LINKS.facebook },
   { icon: Instagram, label: "Instagram", href: SOCIAL_LINKS.instagram },
-  { icon: Linkedin, label: "LinkedIn", href: SOCIAL_LINKS.linkedin },
   { icon: Twitter, label: "X", href: SOCIAL_LINKS.twitter },
 ];
 
@@ -68,7 +66,7 @@ export function SiteFooter() {
               asChild
               className="mt-6 rounded-full bg-foreground text-background transition-all hover:scale-[1.03] hover:bg-foreground/90"
             >
-              <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+              <Link href="/ai-audit">
                 Book a free audit <ArrowUpRight className="size-3.5" />
               </Link>
             </Button>

@@ -265,8 +265,8 @@ export default async function ArticlePage({
             "headline": article.metaTitle,
             "description": article.metaDescription,
             "url": `https://www.yantrixlabs.studio/notebook/${article.slug}`,
-            "datePublished": "2025-06-01",
-            "dateModified": "2026-06-01",
+            "datePublished": new Date(article.publishedAt).toISOString(),
+            "dateModified": new Date(article.publishedAt).toISOString(),
             "author": {
               "@type": "Person",
               "name": "Divya Bhatia",

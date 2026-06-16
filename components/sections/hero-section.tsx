@@ -138,7 +138,7 @@ export function HeroSection() {
               size="lg"
               className="group h-12 w-full sm:w-auto rounded-full bg-foreground px-6 text-background shadow-[0_8px_24px_-8px_var(--brand)] transition-all duration-300 hover:scale-[1.03] hover:bg-foreground/90 hover:shadow-[0_16px_40px_-8px_var(--brand)] lg:h-14 lg:px-8 lg:text-base"
             >
-              <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer" data-event="book_ai_audit">
+              <Link href="/ai-audit" data-event="book_ai_audit">
                 Book a free website &amp; AI audit
                 <ArrowUpRight className="size-4 lg:size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
@@ -181,7 +181,7 @@ export function HeroSection() {
             className="mt-10 lg:mt-12 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground lg:justify-center lg:text-base"
           >
             {[
-              "Senior 5-person team",
+              "Senior studio based in Jaipur",
               "AI-native product studio",
               "Pre-built systems ready",
             ].map((item) => (

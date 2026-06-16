@@ -37,9 +37,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Co-Founder & Full Stack Developer",
     department: "LEADERSHIP",
     name: "Rahul Dhariwal",
-    tagline: "Rahul manages the bridge between what we build and how it performs inside your actual workflow — from first scoping call to post-deployment iteration.",
-    bio: "Rahul co-founded Yantrix Labs to make the gap between a working AI demo and a deployed production system as small as possible. He leads client engagements end-to-end — from scoping the right automation to making sure the final system actually lands in the workflow it was built for. Before Yantrix, he built full-stack applications across SaaS, services, and product companies, developing a pattern for delivery that doesn't sacrifice speed for quality. He's the reason client timelines stay honest.",
-    skills: ["Full-Stack Engineering (Next.js, Node.js, APIs)", "Client Engagement & Delivery Management", "Business Development & Commercial Strategy", "System Integration & Deployment", "Technical Project Architecture"],
+    tagline: "The person who makes sure our technical work lands successfully with clients.",
+    bio: "Rahul is the Co-Founder of Yantrix Labs and the person who makes sure our technical work lands successfully with clients. He bridges the gap between complex engineering and business strategy, driving client relationships and business development. With a background in full-stack development, Rahul ensures that the AI systems we architect are not just technically sound but are strategically aligned with the growth goals of the startups and B2B teams we serve.",
+    skills: ["Client Strategy & Growth", "Full-Stack Engineering", "Business Development", "Technical Project Management", "Operational Workflow Design"],
     social: { linkedin: "#", twitter: "#" },
     photo: "/images/team/partner.avif"
   },

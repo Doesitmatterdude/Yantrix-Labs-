@@ -21,20 +21,17 @@ export const ADDRESS = {
 
 // Social links
 export const SOCIAL_LINKS = {
-  facebook: "https://www.facebook.com/share/1NLMUWjAZF/",
-  instagram:
-    "https://www.instagram.com/yantrix.labs?utm_source=qr&igsh=ZjYwcjhra21pOTNs",
-  linkedin:
-    "https://www.linkedin.com/in/yantrix-labs-6a1547414?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-  twitter: "https://twitter.com/yantrixlabs",
+  instagram: "https://www.instagram.com/yantrix.labs/",
+  twitter: "https://x.com/yantrixlabs",
 };
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "AI Systems", href: "#systems" },
-  { label: "Case Studies", href: "#cases" },
+  { label: "Services", href: "/#services" },
+  { label: "AI Systems", href: "/#systems" },
+  { label: "Case Studies", href: "/#cases" },
+  { label: "Free Audit", href: "/ai-audit" },
   { label: "Notebook", href: "/notebook" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/#about" },
 ];
 
 export const HERO_NODES = [
@@ -216,7 +213,7 @@ export const POSTS = [
 ];
 
 export const TRUST_BADGES = [
-  "10-Person Senior Team",
+  "Senior studio based in Jaipur",
   "Based in Jaipur, India",
   "Serving Teams Worldwide",
   "AI-Native Studio",
@@ -225,7 +222,7 @@ export const TRUST_BADGES = [
 ];
 
 export const TRUST_STATS = [
-  { value: 10, suffix: "+", label: "Senior team" },
+  { value: 100, suffix: "%", label: "In-house engineering" },
   { value: 3, suffix: "", label: "Pre-built AI systems" },
   { value: 24, suffix: "/7", label: "Systems in production" },
   { value: 1, suffix: "", label: "Studio · Jaipur, India" },

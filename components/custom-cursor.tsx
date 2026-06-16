@@ -36,18 +36,22 @@ export function CustomCursor() {
     style.textContent = `* { cursor: none !important; }`;
     document.head.appendChild(style);
 
-    // Mouse move — dot follows instantly
+    // Mouse move — state only, no DOM updates here
     const onMouseMove = (e: MouseEvent) => {
       mousePos.current = { x: e.clientX, y: e.clientY };
-      dot.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
     };
 
-    // Ring lerp animation loop
+    // Animation loop for both dot and ring
     const LERP = 0.12;
     const animateRing = () => {
+      // Smooth the ring position
       ringPos.current.x += (mousePos.current.x - ringPos.current.x) * LERP;
       ringPos.current.y += (mousePos.current.y - ringPos.current.y) * LERP;
-      ring.style.transform = `translate(${ringPos.current.x - 16}px, ${ringPos.current.y - 16}px)`;
+      
+      // Update DOM inside RAF to sync with display refresh rate and avoid style recalculation thrashing
+      dot.style.transform = `translate3d(${mousePos.current.x - 4}px, ${mousePos.current.y - 4}px, 0) scale(var(--cursor-scale, 1))`;
+      ring.style.transform = `translate3d(${ringPos.current.x - 16}px, ${ringPos.current.y - 16}px, 0)`;
+      
       rafRef.current = requestAnimationFrame(animateRing);
     };
     rafRef.current = requestAnimationFrame(animateRing);

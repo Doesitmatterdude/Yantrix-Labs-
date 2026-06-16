@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Allow: /ai-audit
+Disallow: /api/
+
+# AI crawlers — explicitly allow
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+Sitemap: https://www.yantrixlabs.studio/sitemap.xml

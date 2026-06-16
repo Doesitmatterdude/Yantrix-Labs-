@@ -63,11 +63,7 @@ export function AboutSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-pretty text-lg leading-relaxed text-muted-foreground"
           >
-            We are a team of creative developers, designers, and strategists who
-            blend experimentation with disciplined execution. Every engagement
-            starts with deeply understanding your vision and constraints, then
-            turning that into a digital reality — an e-commerce app, a food
-            delivery system, a SaaS platform, or a full business ecosystem.
+            We are a Jaipur-based AI-native studio combining product thinking, engineering, design, and automation strategy. Every engagement starts with understanding the workflow, constraint, and metric that matters most — then building systems that can actually run in production.
           </motion.p>
 
           <motion.p
@@ -102,11 +98,15 @@ export function AboutSection() {
                 };
 
                 const designation = DESIGNATION_MAP[firstName] || "MEMBER";
+                
+                const isClickable = member.slug === "founder-partner" || member.slug === "business-partner";
+                const Wrapper = isClickable ? Link : "div";
+                const props = isClickable ? { href: `/team/${member.slug}` } : {};
 
                 return (
-                  <Link
+                  <Wrapper
                     key={member.slug}
-                    href={`/team/${member.slug}`}
+                    {...props}
                     className="group flex flex-col items-center gap-2 outline-none"
                   >
                     <div className="relative size-12 overflow-hidden rounded-full border-2 border-background ring-1 ring-border transition-all duration-300 group-hover:scale-110 group-hover:ring-brand group-focus-visible:ring-brand">
@@ -124,12 +124,12 @@ export function AboutSection() {
                         <span className="flex h-[14px] items-center justify-center font-semibold text-brand">{designation}</span>
                       </div>
                     </div>
-                  </Link>
+                  </Wrapper>
                 );
               })}
             </div>
             <div className="rounded-full border border-border bg-secondary/50 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/60">
-              5 senior makers · Jaipur, India
+              5 SENIOR MAKERS · JAIPUR, INDIA
             </div>
           </motion.div>
 

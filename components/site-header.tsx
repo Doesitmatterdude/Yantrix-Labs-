@@ -34,7 +34,7 @@ export function SiteHeader() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <Link href="#top" className="flex items-center gap-2 pl-2">
+        <Link href="/" className="flex items-center gap-2 pl-2">
           <BrandLogoMark className="size-8" />
           <span className="font-mono text-sm font-medium tracking-tight">
             Yantrix Labs
@@ -62,7 +62,7 @@ export function SiteHeader() {
             size="sm"
             className="hidden rounded-full bg-foreground px-3.5 text-background transition-all hover:scale-[1.03] hover:bg-foreground/90 sm:inline-flex"
           >
-            <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+            <Link href="/ai-audit">
               {/* Pulsing dot */}
               <span className="relative mr-1.5 flex size-2">
                 <span className="absolute inset-0 animate-ping rounded-full bg-brand opacity-75" />
@@ -108,7 +108,7 @@ export function SiteHeader() {
                 asChild
                 className="mt-2 rounded-full bg-foreground text-background hover:bg-foreground/90"
               >
-                <Link href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
+                <Link href="/ai-audit">
                   <span className="relative mr-1.5 flex size-2">
                     <span className="absolute inset-0 animate-ping rounded-full bg-brand opacity-75" />
                     <span className="relative size-2 rounded-full bg-brand" />

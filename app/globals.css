@@ -413,7 +413,7 @@
 
   /* Click state */
   .cursor-dot.cursor--click {
-    transform: scale(0.8) !important;
+    --cursor-scale: 0.8;
   }
   .cursor-ring.cursor--click {
     width: 26px;
