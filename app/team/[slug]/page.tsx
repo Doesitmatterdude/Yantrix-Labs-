@@ -23,7 +23,7 @@ export async function generateMetadata({
 
   return {
     title: `${member.name} · ${member.role} · Yantrix Labs`,
-    description: `${member.name} is ${member.role} at Yantrix Labs. ${member.tagline}`,
+    description: `Meet ${member.name}, ${member.role} at Yantrix Labs. ${member.tagline} Discover how we build AI systems and websites for businesses.`,
   };
 }
 

@@ -13,7 +13,7 @@ import { AuditProvider } from "@/components/providers/audit-provider";
 
 export const metadata: Metadata = {
   title: "Free AI Website Audit — Score Your Site in 30 Seconds | Yantrix Labs",
-  description: "Get a free AI-powered audit of your website. We analyze 50+ parameters — technical health, SEO, AI readiness, conversion signals — and email your personalized report in under 60 seconds. No signup needed.",
+  description: "Free AI-powered website audit. We score 50+ parameters across technical health, SEO, and conversion signals. Get your personalized report in 60 seconds.",
   alternates: {
     canonical: "https://www.yantrixlabs.studio/ai-audit",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.yantrixlabs.studio/ai-audit",
     title: "Free AI Website Audit — Yantrix Labs",
-    description: "AI-powered audit across 50+ parameters. Technical health, SEO, AI readiness, conversion signals. Free report in your inbox in 60 seconds.",
+    description: "Free AI-powered website audit. We score 50+ parameters across technical health, SEO, and conversion signals. Get your personalized report in 60 seconds.",
     siteName: "Yantrix Labs",
     images: [{
       url: "https://www.yantrixlabs.studio/brand/og-image.png",

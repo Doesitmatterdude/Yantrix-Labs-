@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -10,6 +11,11 @@ import { NotebookSection } from "@/components/sections/notebook-section";
 import { SocialStrip } from "@/components/sections/social-strip";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionParallax } from "@/components/section-parallax";
+
+export const metadata: Metadata = {
+  title: "Yantrix Labs — AI systems your business can actually run on",
+  description: "Yantrix Labs is an AI-native product studio in Jaipur. We build AI-powered websites, lead agents, and digital systems that deploy in days, not quarters.",
+};
 
 export default function HomePage() {
   return (

@@ -3,12 +3,10 @@ import { TeamClient } from "./team-client";
 
 export const metadata: Metadata = {
   title: "Team · Yantrix Labs",
-  description:
-    "Meet the core team behind Yantrix Labs — engineers, strategists, and AI systems specialists based in Jaipur, India.",
+  description: "Meet the core team behind Yantrix Labs. We are a specialized group of engineers, strategists, and AI system architects building modern digital products.",
   openGraph: {
     title: "Team · Yantrix Labs",
-    description:
-      "Meet the core team behind Yantrix Labs — engineers, strategists, and AI systems specialists based in Jaipur, India.",
+    description: "Meet the core team behind Yantrix Labs. We are a specialized group of engineers, strategists, and AI system architects building modern digital products.",
     type: "website",
   },
 };

@@ -7,12 +7,10 @@ import { WHATSAPP_LINK } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Notebook — Yantrix Labs",
-  description:
-    "Honest breakdowns of AI systems, business automation, and modern web — written for operators, not buzzword chasers.",
+  description: "Honest breakdowns of AI systems, business automation, and modern web development. Written by the Yantrix Labs engineering team for hands-on operators.",
   openGraph: {
     title: "Notebook — Yantrix Labs",
-    description:
-      "Honest breakdowns of AI systems, business automation, and modern web — written for operators, not buzzword chasers.",
+    description: "Honest breakdowns of AI systems, business automation, and modern web development. Written by the Yantrix Labs engineering team for hands-on operators.",
     type: "website",
   },
 };
