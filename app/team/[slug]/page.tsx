@@ -207,25 +207,32 @@ export default async function TeamMemberPage({
         </div>
       </section>
 
-      {/* Person Schema */}
+      {/* ProfilePage / Person Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": member.name,
-            "jobTitle": member.role,
-            "description": member.bio,
-            "worksFor": {
-              "@type": "Organization",
-              "name": "Yantrix Labs",
-              "url": "https://www.yantrixlabs.studio"
-            },
-            "url": `https://www.yantrixlabs.studio/team/${member.slug}`,
-            "sameAs": member.social 
-              ? Object.values(member.social).filter(link => link && link !== "#")
-              : []
+            "@type": "ProfilePage",
+            "mainEntity": {
+              "@type": "Person",
+              "@id": `https://yantrixlabs.studio/team/${member.slug}#${member.slug}`,
+              "name": member.name,
+              "url": `https://yantrixlabs.studio/team/${member.slug}`,
+              "jobTitle": member.role,
+              "description": member.bio,
+              "worksFor": { "@id": "https://yantrixlabs.studio/#organization" },
+              "knowsAbout": member.skills,
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Jaipur",
+                "addressRegion": "Rajasthan",
+                "addressCountry": "IN"
+              },
+              "sameAs": member.social 
+                ? Object.values(member.social).filter(link => link && link !== "#")
+                : []
+            }
           })
         }}
       />

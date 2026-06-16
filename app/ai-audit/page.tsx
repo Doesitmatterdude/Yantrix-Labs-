@@ -47,11 +47,29 @@ export const metadata: Metadata = {
   keywords: ["free website audit", "AI website audit", "SEO audit tool", "website score", "technical SEO checker", "website analysis", "Jaipur digital agency"],
 };
 
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://yantrixlabs.studio/ai-audit#webpage",
+  "url": "https://yantrixlabs.studio/ai-audit",
+  "name": "Free AI Website Audit — Score Your Site in 30 Seconds | Yantrix Labs",
+  "description": "Free AI-powered website audit scoring 50+ parameters: technical health, SEO, AI readiness, conversion signals. Report delivered in under 60 seconds.",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yantrixlabs.studio" },
+      { "@type": "ListItem", "position": 2, "name": "Free AI Audit", "item": "https://yantrixlabs.studio/ai-audit" }
+    ]
+  },
+  "isPartOf": { "@id": "https://yantrixlabs.studio/#website" },
+  "publisher": { "@id": "https://yantrixlabs.studio/#organization" }
+};
+
 const webApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Yantrix AI Website Audit",
-  "url": "https://www.yantrixlabs.studio/ai-audit",
+  "url": "https://yantrixlabs.studio/ai-audit",
   "description": "Free AI-powered website audit tool that analyzes 50+ parameters including technical health, SEO, AI readiness, and conversion signals. Delivers a personalized report to your inbox in under 60 seconds.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
@@ -62,20 +80,7 @@ const webApplicationSchema = {
     "availability": "https://schema.org/InStock"
   },
   "provider": {
-    "@type": "Organization",
-    "name": "Yantrix Labs",
-    "url": "https://www.yantrixlabs.studio",
-    "logo": "https://www.yantrixlabs.studio/brand/yantrix-logo.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "4th Floor, City Corporate Tower, Malviya Marg, C Scheme, Ashok Nagar",
-      "addressLocality": "Jaipur",
-      "addressRegion": "Rajasthan",
-      "postalCode": "302001",
-      "addressCountry": "IN"
-    },
-    "telephone": "+91-9829842694",
-    "email": "hello@yantrixlabs.studio"
+    "@id": "https://yantrixlabs.studio/#organization"
   }
 };
 
@@ -85,42 +90,42 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this really free?",
+      "name": "Is the AI website audit really free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — completely free, no credit card, no hidden upsell gate. We use the audit to demonstrate exactly how much room for improvement exists. If the report is valuable, some teams choose to work with us on the fixes. But the audit itself is yours to keep either way."
+        "text": "Yes, the Yantrix AI Website Audit is completely free. No signup, no credit card, and no hidden fees required. Simply enter your URL and receive the full report in your inbox."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does the audit take?",
+      "name": "How long does the AI website audit take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Typically under 60 seconds. Our engine crawls your site concurrently across multiple analysis dimensions. Once complete, the full report is delivered to your inbox immediately."
+        "text": "The audit takes under 60 seconds. Our AI engine analyzes your site across 50+ parameters concurrently and delivers a personalized report to your inbox in under a minute."
       }
     },
     {
       "@type": "Question",
-      "name": "What do you do with my email?",
+      "name": "What do you do with my email address?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We use it to send your audit report and, occasionally, genuinely useful insights about website performance and AI automation. We never sell your data, and you can unsubscribe with one click."
+        "text": "Your email is used solely to deliver your audit report. We do not spam, sell, or share your data with any third parties."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I share the report with my team?",
+      "name": "Can I share the audit report with my team?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely. The report is designed to be shareable — clear scores, non-technical explanations, and a prioritized action list. It's a useful artifact for stakeholder conversations."
+        "text": "Yes. The report is delivered as a clean, shareable document you can forward to your team or stakeholders immediately."
       }
     },
     {
       "@type": "Question",
-      "name": "What if my score is low?",
+      "name": "What if my website audit score is low?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A low score is actually good news — it means there's significant, untapped upside. The report will show you exactly what's dragging the score down and what to fix first. If you'd like help, we can walk through the roadmap on a free strategy call."
+        "text": "A low score means there is significant room to grow. Yantrix Labs can fix the identified issues and typically ships improvements within two weeks. Book a free strategy call to discuss."
       }
     },
     {
@@ -128,18 +133,9 @@ const faqSchema = {
       "name": "Do you offer a deeper, human-led audit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The AI audit is a powerful starting point. For a comprehensive analysis of your brand positioning, technical architecture, and growth strategy, you can book a free 30-minute strategy call with our team."
+        "text": "Yes. Beyond the free automated audit, Yantrix Labs offers a comprehensive human-led audit and full implementation service. Contact us at hello@yantrixlabs.studio to learn more."
       }
     }
-  ]
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.yantrixlabs.studio" },
-    { "@type": "ListItem", "position": 2, "name": "Free AI Website Audit", "item": "https://www.yantrixlabs.studio/ai-audit" }
   ]
 };
 
@@ -147,6 +143,11 @@ export default function AiAuditPage() {
   return (
     <>
       {/* Structured Data */}
+      <Script
+        id="schema-webpage"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       <Script
         id="schema-web-app"
         type="application/ld+json"
@@ -156,11 +157,6 @@ export default function AiAuditPage() {
         id="schema-faq"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Script
-        id="schema-breadcrumbs"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <SiteHeader />

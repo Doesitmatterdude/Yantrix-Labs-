@@ -32,97 +32,164 @@ export default function HomePage() {
       </SectionParallax>
       <SiteFooter />
 
+      {/* Organization Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://yantrixlabs.studio/#organization",
+            "name": "Yantrix Labs",
+            "url": "https://yantrixlabs.studio",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://yantrixlabs.studio/og-image.png",
+              "width": 1200,
+              "height": 630
+            },
+            "description": "Yantrix Labs is an AI-native product studio based in Jaipur, India, building AI-powered websites, automations, and intelligent systems for startups and B2B teams globally.",
+            "foundingDate": "2026",
+            "founders": [
+              {
+                "@type": "Person",
+                "name": "Divya Bhatia",
+                "url": "https://yantrixlabs.studio/team/founder-partner",
+                "jobTitle": "Founder & Business Lead"
+              },
+              {
+                "@type": "Person",
+                "name": "Rahul Dhariwal",
+                "url": "https://yantrixlabs.studio/team/business-partner",
+                "jobTitle": "Co-Founder & Full Stack Developer"
+              }
+            ],
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-9829842694",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Hindi"]
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-9251111358",
+                "contactType": "sales",
+                "availableLanguage": ["English", "Hindi"]
+              }
+            ],
+            "email": "hello@yantrixlabs.studio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4th Floor, City Corporate Tower, Malviya Marg, C Scheme, Ashok Nagar",
+              "addressLocality": "Jaipur",
+              "addressRegion": "Rajasthan",
+              "postalCode": "302001",
+              "addressCountry": "IN"
+            },
+            "sameAs": [
+              "https://www.instagram.com/yantrix.labs/",
+              "https://x.com/yantrixlabs",
+              "https://www.linkedin.com/company/yantrixlabs",
+              "https://www.facebook.com/yantrixlabs"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "AI Products & Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Client Scout",
+                    "description": "AI-powered B2B lead enrichment and prospecting automation."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Hiring Screener",
+                    "description": "Automated AI hiring screening that reduces recruiter time by 87%."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Calling Assistant",
+                    "description": "AI-powered sales calling and outreach automation."
+                  }
+                }
+              ]
+            }
+          })
+        }}
+      />
+
       {/* LocalBusiness Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: `{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Yantrix Labs",
-  "image": "https://www.yantrixlabs.studio/og-image.png",
-  "url": "https://www.yantrixlabs.studio",
-  "hasMap": "https://maps.app.goo.gl/xCsoJuu2pykFJEA98?g_st=ac",
-  "sameAs": [
-    "https://maps.app.goo.gl/xCsoJuu2pykFJEA98?g_st=ac",
-    "https://x.com/yantrixlabs",
-    "https://www.instagram.com/yantrix.labs/"
-  ],
-  "telephone": "+91-9251111358",
-  "email": "hello@yantrixlabs.studio",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "4th Floor, City Corporate Tower, Malviya Marg, C Scheme, Ashok Nagar",
-    "addressLocality": "Jaipur",
-    "addressRegion": "Rajasthan",
-    "postalCode": "302001",
-    "addressCountry": "IN"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 26.9124,
-    "longitude": 75.7873
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "09:00",
-    "closes": "18:00"
-  }
-}`
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": "https://yantrixlabs.studio/#localbusiness",
+            "name": "Yantrix Labs",
+            "image": "https://yantrixlabs.studio/og-image.png",
+            "url": "https://yantrixlabs.studio",
+            "telephone": "+91-9829842694",
+            "email": "hello@yantrixlabs.studio",
+            "priceRange": "₹₹₹",
+            "description": "AI automation agency in Jaipur specializing in AI agents, full-stack software, and intelligent digital systems for businesses.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4th Floor, City Corporate Tower, Malviya Marg, C Scheme, Ashok Nagar",
+              "addressLocality": "Jaipur",
+              "addressRegion": "Rajasthan",
+              "postalCode": "302001",
+              "addressCountry": "IN"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "26.9124",
+              "longitude": "75.7873"
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "10:00",
+                "closes": "19:00"
+              }
+            ],
+            "areaServed": [
+              { "@type": "City", "name": "Jaipur" },
+              { "@type": "Country", "name": "India" },
+              { "@type": "AdministrativeArea", "name": "Global" }
+            ],
+            "hasMap": "https://maps.app.goo.gl/xwYnNDZPAE2rTxg29",
+            "sameAs": "https://yantrixlabs.studio/#organization"
+          })
         }}
       />
 
-      {/* FAQPage Schema */}
+      {/* WebSite Schema — enables Sitelinks Searchbox */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: `{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What does Yantrix Labs build?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yantrix Labs builds AI-powered websites, operational automations, and pre-built AI systems including lead intelligence tools, AI hiring screeners, and AI calling assistants — deployed in under two weeks."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does AI system deployment take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most standard Yantrix AI system setups deploy in approximately two weeks. Bespoke agents typically ship in under two weeks depending on integration complexity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Yantrix Labs work with international clients?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Yantrix Labs is based in Jaipur, India and works with teams across India, the US, and Europe. The studio operates on overlapping timezone windows for async and live collaboration."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is Yantrix Client Scout?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yantrix Client Scout is a lead intelligence system that discovers and enriches potential leads from targeted sources, scores them against your ICP, and attaches source reasoning to every entry — replacing generic lead lists with a transparent, lower-cost pipeline."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I start working with Yantrix Labs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The first step is a free 30-minute website and AI audit. You can book directly via WhatsApp at +91-9251111358 or email hello@yantrixlabs.studio."
-      }
-    }
-  ]
-}`
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://yantrixlabs.studio/#website",
+            "url": "https://yantrixlabs.studio",
+            "name": "Yantrix Labs",
+            "description": "AI systems your business can actually run on.",
+            "publisher": {
+              "@id": "https://yantrixlabs.studio/#organization"
+            },
+            "inLanguage": "en-IN"
+          })
         }}
       />
     </main>
