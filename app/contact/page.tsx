@@ -65,6 +65,11 @@ const contactSchema = {
     name: "Yantrix Labs",
     url: "https://www.yantrixlabs.studio",
     logo: "https://www.yantrixlabs.studio/brand/yantrix-logo.png",
+    sameAs: [
+      "https://maps.app.goo.gl/xCsoJuu2pykFJEA98?g_st=ac",
+      "https://x.com/yantrixlabs",
+      "https://www.instagram.com/yantrix.labs/"
+    ],
     telephone: "+91-9251111358",
     email: "hello@yantrixlabs.studio",
     address: {

@@ -42,6 +42,12 @@ export default function HomePage() {
   "name": "Yantrix Labs",
   "image": "https://www.yantrixlabs.studio/og-image.png",
   "url": "https://www.yantrixlabs.studio",
+  "hasMap": "https://maps.app.goo.gl/xCsoJuu2pykFJEA98?g_st=ac",
+  "sameAs": [
+    "https://maps.app.goo.gl/xCsoJuu2pykFJEA98?g_st=ac",
+    "https://x.com/yantrixlabs",
+    "https://www.instagram.com/yantrix.labs/"
+  ],
   "telephone": "+91-9251111358",
   "email": "hello@yantrixlabs.studio",
   "address": {

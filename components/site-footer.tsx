@@ -76,9 +76,11 @@ export function SiteFooter() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 size-3.5 shrink-0" strokeWidth={1.5} />
                 <address className="not-italic leading-[1.6]">
-                  4th Floor, City Corporate Tower,
-                  <br />Malviya Marg, C Scheme, Ashok Nagar,
-                  <br />Jaipur, Rajasthan, India — Pincode: 302001
+                  <a href="https://maps.app.goo.gl/xCsoJuu2pykFJEA98?g_st=ac" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
+                    4th Floor, City Corporate Tower,
+                    <br />Malviya Marg, C Scheme, Ashok Nagar,
+                    <br />Jaipur, Rajasthan, India — Pincode: 302001
+                  </a>
                 </address>
               </div>
               
