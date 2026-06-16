@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     description: "Honest breakdowns of AI systems, business automation, and modern web development. Written by the Yantrix Labs engineering team for hands-on operators.",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Notebook — Yantrix Labs",
+    description: "Honest breakdowns of AI systems, business automation, and modern web development. Written by the Yantrix Labs engineering team for hands-on operators.",
+  },
 };
 
 const CATEGORY_COLORS = {

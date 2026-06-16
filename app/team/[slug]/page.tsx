@@ -24,6 +24,19 @@ export async function generateMetadata({
   return {
     title: `${member.name} · ${member.role} · Yantrix Labs`,
     description: `Meet ${member.name}, ${member.role} at Yantrix Labs. ${member.tagline} Discover how we build AI systems and websites for businesses.`,
+    openGraph: {
+      title: `${member.name} · ${member.role} · Yantrix Labs`,
+      description: `Meet ${member.name}, ${member.role} at Yantrix Labs. ${member.tagline} Discover how we build AI systems and websites for businesses.`,
+      type: "profile",
+      url: `https://www.yantrixlabs.studio/team/${member.slug}`,
+      images: [{ url: member.photo }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${member.name} · ${member.role} · Yantrix Labs`,
+      description: `Meet ${member.name}, ${member.role} at Yantrix Labs. ${member.tagline} Discover how we build AI systems and websites for businesses.`,
+      images: [member.photo],
+    },
   };
 }
 

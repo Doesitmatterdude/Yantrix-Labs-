@@ -15,6 +15,26 @@ import { SectionParallax } from "@/components/section-parallax";
 export const metadata: Metadata = {
   title: "Yantrix Labs — AI systems your business can actually run on",
   description: "Yantrix Labs is an AI-native product studio in Jaipur. We build AI-powered websites, lead agents, and digital systems that deploy in days, not quarters.",
+  openGraph: {
+    type: "website",
+    url: "https://www.yantrixlabs.studio",
+    title: "Yantrix Labs — AI systems your business can actually run on",
+    description: "Yantrix Labs is an AI-native product studio in Jaipur. We build AI-powered websites, lead agents, and digital systems that deploy in days, not quarters.",
+    siteName: "Yantrix Labs",
+    images: [{
+      url: "https://www.yantrixlabs.studio/brand/og-image.png",
+      width: 1200,
+      height: 630,
+    }],
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@yantrixlabs",
+    title: "Yantrix Labs — AI systems your business can actually run on",
+    description: "Yantrix Labs is an AI-native product studio in Jaipur. We build AI-powered websites, lead agents, and digital systems that deploy in days, not quarters.",
+    images: ["https://www.yantrixlabs.studio/brand/og-image.png"],
+  },
 };
 
 export default function HomePage() {
