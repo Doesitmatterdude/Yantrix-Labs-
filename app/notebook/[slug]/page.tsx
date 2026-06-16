@@ -78,9 +78,8 @@ function renderSection(section: SectionType, index: number) {
         <p
           key={index}
           className="mb-5 text-pretty text-base leading-relaxed text-foreground/80 sm:text-lg"
-        >
-          {section.content}
-        </p>
+          dangerouslySetInnerHTML={{ __html: section.content }}
+        />
       );
 
     case "blockquote":
@@ -89,9 +88,10 @@ function renderSection(section: SectionType, index: number) {
           key={index}
           className="my-8 border-l-2 border-brand pl-6"
         >
-          <p className="font-display text-xl italic leading-relaxed tracking-tight text-foreground sm:text-2xl">
-            &ldquo;{section.content}&rdquo;
-          </p>
+          <p 
+            className="font-display text-xl italic leading-relaxed tracking-tight text-foreground sm:text-2xl"
+            dangerouslySetInnerHTML={{ __html: `&ldquo;${section.content}&rdquo;` }}
+          />
         </blockquote>
       );
 
@@ -101,9 +101,10 @@ function renderSection(section: SectionType, index: number) {
           {section.items.map((item, j) => (
             <li key={j} className="flex gap-3 text-foreground/80">
               <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-brand" />
-              <span className="text-base leading-relaxed sm:text-lg">
-                {item}
-              </span>
+              <span 
+                className="text-base leading-relaxed sm:text-lg"
+                dangerouslySetInnerHTML={{ __html: item }}
+              />
             </li>
           ))}
         </ul>
