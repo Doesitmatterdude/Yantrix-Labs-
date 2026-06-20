@@ -1,15 +1,18 @@
+import type { AuditSignals } from "@/lib/html-analyzer";
+
 export interface AuditResult {
   businessName: string;
   overallScore: number;
   scores: {
-    technical: number;
-    seo: number;
-    ai: number;
-    conversion: number;
-    competitive: number;
+    technical: { score: number; reason: string };
+    seo: { score: number; reason: string };
+    ai: { score: number; reason: string };
+    conversion: { score: number; reason: string };
+    competitive: { score: number; reason: string };
   };
   issues: string[];
   recommendations: Array<{ text: string; impact: string }>;
+  signalsSummary?: string;
 }
 
 type ProviderType = "openai" | "gemini";
@@ -81,29 +84,46 @@ const providers: Provider[] = [
   }
 ];
 
-const SYSTEM_PROMPT = `You are an expert AI and website auditor. You will receive the raw text scraped from a website. 
-Your job is to analyze it across 5 dimensions: Technical Health, SEO, AI Readiness, Conversion Signals, and Competitive Position.
-Output STRICTLY a JSON object matching this schema. Do not include markdown code blocks around the JSON.
+const SYSTEM_PROMPT = `You are an expert website auditor for Yantrix Labs. You receive THREE inputs:
+
+INPUT A — FACTUAL SIGNALS (machine-measured, 100% accurate, do not contradict these):
+A JSON object with deterministic measurements from the website.
+
+INPUT B — WEBSITE TEXT CONTENT:
+The stripped text of the page for qualitative analysis.
+
+INPUT C — PRE-COMPUTED SCORES:
+A JSON object with strictly computed deterministic scores for Technical, SEO, AI Readiness, and Conversion.
+
+Your job:
+1. For technical, seo, ai, and conversion: YOU MUST USE THE EXACT NUMBERS from INPUT C. Do not change them.
+2. For competitive: Compute a qualitative evaluation (0-100) based on content word count, blog presence, about/contact/team pages, social links, brand clarity, and copyright current.
+3. Provide a 1-sentence "reason" for EACH score explaining why it received that score based on the signals in INPUT A. For the "technical" score reason, you MUST explicitly include the exact phrase "Measured with Lighthouse" if PSI data exists, or "Estimated without Lighthouse" if it does not.
+4. Calculate the overallScore = technical*0.25 + seo*0.25 + ai*0.15 + conversion*0.20 + competitive*0.15 (rounded).
+5. Generate a "signalsSummary" field: 1–2 plain English sentences summarizing what the engine detected. If PSI data is available in INPUT A (under psiSignals), you MUST append "Google PageSpeed score: [performanceScore]/100. LCP: [formatted.lcp], CLS: [formatted.cls]." to the summary.
+
+Output STRICTLY a JSON object. No markdown code blocks.
 {
-  "businessName": "Extracted Business Name (or Domain if unclear)",
+  "businessName": "Extracted Business Name",
   "overallScore": 65,
   "scores": {
-    "technical": 70,
-    "seo": 60,
-    "ai": 30,
-    "conversion": 80,
-    "competitive": 85
+    "technical": { "score": 70, "reason": "TTFB of 1.8s is borderline — consider upgrading hosting. HTTPS is active." },
+    "seo": { "score": 60, "reason": "Strong title tag and single H1, but no Open Graph image found for social sharing." },
+    "ai": { "score": 30, "reason": "Google Analytics detected but no CRM, no chatbot, and no llms.txt file." },
+    "conversion": { "score": 80, "reason": "Phone number is present but no WhatsApp link and only 1 CTA button detected." },
+    "competitive": { "score": 85, "reason": "Content is strong but no blog detected and social media links are missing." }
   },
-  "issues": ["List of 3 short, critical issues found (max 10 words each)"],
-  "recommendations": [
-    { "text": "Actionable recommendation", "impact": "+15 SEO pts" }
-  ]
+  "issues": ["5 issues ranked by severity, max 12 words each"],
+  "recommendations": [{ "text": "Actionable recommendation", "impact": "+15 SEO pts" }],
+  "signalsSummary": "Plain English summary of detected signals."
 }
-Ensure there are exactly 3 issues and 3 recommendations.`;
+Provide exactly 5 issues and 5 recommendations.`;
 
-export async function generateAudit(url: string, text: string): Promise<AuditResult> {
-  const truncatedText = text.slice(0, 30000); // Prevent massive payloads
-  const userPrompt = `Target URL: ${url}\n\nWebsite Content:\n${truncatedText}`;
+export async function generateAudit(url: string, text: string, signals?: AuditSignals, deterministicScores?: any): Promise<AuditResult> {
+  const truncatedText = text.slice(0, 15000);
+  const userPrompt = signals && deterministicScores
+    ? `Target URL: ${url}\n\nINPUT A — FACTUAL SIGNALS:\n${JSON.stringify(signals, null, 2)}\n\nINPUT B — WEBSITE TEXT CONTENT:\n${truncatedText}\n\nINPUT C — PRE-COMPUTED SCORES:\n${JSON.stringify(deterministicScores, null, 2)}`
+    : `Target URL: ${url}\n\nWebsite Content:\n${truncatedText}`;
 
   const availableProviders = providers.filter(p => p.getApiKey());
   

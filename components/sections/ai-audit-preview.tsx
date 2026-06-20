@@ -12,11 +12,11 @@ import { useAudit } from "@/components/providers/audit-provider";
 const EASE_OUT_EXPO = [0.22, 1, 0.36, 1] as const;
 
 const scores = [
-  { label: "Technical Health", value: 71, status: "ok" },
-  { label: "SEO Performance", value: 58, status: "warn" },
-  { label: "AI Readiness", value: 34, status: "critical" },
-  { label: "Conversion Signals", value: 67, status: "ok" },
-  { label: "Competitive Position", value: 55, status: "warn" },
+  { label: "Technical Health", value: 85, status: "ok", reason: "The website has a strong technical foundation with active HTTPS and compressed HTML, but TTFB is borderline." },
+  { label: "SEO Performance", value: 80, status: "ok", reason: "Strong title tag and meta descriptions are present, but duplicate service blocks weaken optimization." },
+  { label: "AI Readiness", value: 45, status: "warn", reason: "Google Analytics detected but no CRM, conversational AI assistants, or llms.txt files were found." },
+  { label: "Conversion Signals", value: 90, status: "ok", reason: "Strong conversion intent with clear call-to-action buttons, phone numbers, and massive social proof." },
+  { label: "Competitive Position", value: 80, status: "ok", reason: "Deep clinical content gives a competitive advantage, though social media links are missing." },
 ];
 
 const issues = [
@@ -56,16 +56,30 @@ export function AiAuditPreview() {
   const { auditData, isUnlocked } = useAudit();
 
   const displayScores = isUnlocked && auditData ? [
-    { label: "Technical Health", value: auditData.scores.technical, status: auditData.scores.technical > 70 ? "ok" : auditData.scores.technical > 40 ? "warn" : "critical" },
-    { label: "SEO Performance", value: auditData.scores.seo, status: auditData.scores.seo > 70 ? "ok" : auditData.scores.seo > 40 ? "warn" : "critical" },
-    { label: "AI Readiness", value: auditData.scores.ai, status: auditData.scores.ai > 70 ? "ok" : auditData.scores.ai > 40 ? "warn" : "critical" },
-    { label: "Conversion Signals", value: auditData.scores.conversion, status: auditData.scores.conversion > 70 ? "ok" : auditData.scores.conversion > 40 ? "warn" : "critical" },
-    { label: "Competitive Position", value: auditData.scores.competitive, status: auditData.scores.competitive > 70 ? "ok" : auditData.scores.competitive > 40 ? "warn" : "critical" },
+    { label: "Technical Health", value: auditData.scores.technical.score, status: auditData.scores.technical.score > 70 ? "ok" : auditData.scores.technical.score > 40 ? "warn" : "critical", reason: auditData.scores.technical.reason },
+    { label: "SEO Performance", value: auditData.scores.seo.score, status: auditData.scores.seo.score > 70 ? "ok" : auditData.scores.seo.score > 40 ? "warn" : "critical", reason: auditData.scores.seo.reason },
+    { label: "AI Readiness", value: auditData.scores.ai.score, status: auditData.scores.ai.score > 70 ? "ok" : auditData.scores.ai.score > 40 ? "warn" : "critical", reason: auditData.scores.ai.reason },
+    { label: "Conversion Signals", value: auditData.scores.conversion.score, status: auditData.scores.conversion.score > 70 ? "ok" : auditData.scores.conversion.score > 40 ? "warn" : "critical", reason: auditData.scores.conversion.reason },
+    { label: "Competitive Position", value: auditData.scores.competitive.score, status: auditData.scores.competitive.score > 70 ? "ok" : auditData.scores.competitive.score > 40 ? "warn" : "critical", reason: auditData.scores.competitive.reason },
   ] : scores;
 
   const displayIssues = isUnlocked && auditData ? auditData.issues : issues;
   const displayRecs = isUnlocked && auditData ? auditData.recommendations : recommendations;
-  const displayOverall = isUnlocked && auditData ? auditData.overallScore : 62;
+  const displayOverall = isUnlocked && auditData ? auditData.overallScore : 76;
+  const displaySummary = isUnlocked && auditData?.signalsSummary ? auditData.signalsSummary : "We detected Google Tag Manager and a FAQ schema. Technical: 100 - 10 (TTFB) - 5 (CSP) = 85.";
+  const signals = isUnlocked && auditData?.signals ? auditData.signals : {
+    isHttps: true,
+    hasSitemapXml: true,
+    hasLlmsTxt: false,
+    detectedAnalytics: ["Google Analytics"],
+    detectedCrm: [],
+    detectedChatbot: []
+  } as any;
+
+  // Aggregate detected tools for the pill badges
+  const detectedTools = signals 
+    ? [...(signals.detectedCrm || []), ...(signals.detectedAnalytics || []), ...(signals.detectedChatbot || [])]
+    : [];
 
   return (
     <section id="audit-preview" className="relative scroll-mt-24 border-t border-border/60 bg-secondary/30 py-20 sm:py-24 overflow-hidden">
@@ -166,6 +180,44 @@ export function AiAuditPreview() {
                 </div>
               </div>
 
+              {/* What Our Engine Detected */}
+              <motion.div 
+                className="mb-8 rounded-2xl border border-border/40 bg-background/50 p-5 sm:p-6"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-brand/80 mb-3">
+                  <span className="size-1.5 rounded-full bg-brand" />
+                  📡 Data Collected
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  {displaySummary}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className={`rounded-md border-border/50 font-medium ${signals?.isHttps !== false ? "bg-emerald-500/10 text-emerald-500" : "bg-destructive/10 text-destructive"}`}>
+                    {signals?.isHttps !== false ? "HTTPS ✅" : "HTTP ❌"}
+                  </Badge>
+                  <Badge variant="outline" className={`rounded-md border-border/50 font-medium ${signals?.hasSitemapXml !== false ? "bg-emerald-500/10 text-emerald-500" : "bg-destructive/10 text-destructive"}`}>
+                    {signals?.hasSitemapXml !== false ? "Sitemap ✅" : "Sitemap ❌ Missing"}
+                  </Badge>
+                  <Badge variant="outline" className={`rounded-md border-border/50 font-medium ${signals?.hasLlmsTxt ? "bg-emerald-500/10 text-emerald-500" : "bg-destructive/10 text-destructive"}`}>
+                    {signals?.hasLlmsTxt ? "llms.txt ✅" : "llms.txt ❌ Missing"}
+                  </Badge>
+                  {detectedTools.length > 0 ? (
+                    detectedTools.map(tool => (
+                      <Badge key={tool} variant="outline" className="rounded-md border-border/50 bg-secondary/30 text-foreground/70 font-medium">
+                        {tool} detected
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge variant="outline" className="rounded-md border-border/50 bg-secondary/30 text-foreground/70 font-medium">
+                      No 3rd-party tools detected
+                    </Badge>
+                  )}
+                </div>
+              </motion.div>
+
               {/* Dimension scores */}
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-border/60 bg-border/30 md:grid-cols-5 [&>*:last-child]:col-span-2 md:[&>*:last-child]:col-span-1">
                 {displayScores.map((s, i) => (
@@ -177,8 +229,20 @@ export function AiAuditPreview() {
                     transition={{ delay: 0.2 + i * 0.08 }}
                     className="bg-card p-4 sm:p-5"
                   >
-                    <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/40 mb-2">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-foreground/40 mb-2 flex items-center justify-between">
                       {s.label}
+                      {s.label === "Technical Health" && (
+                        signals?.psiSignals ? (
+                          <span className="text-[8px] sm:text-[9px] text-brand/80 font-sans tracking-normal bg-brand/10 px-1.5 py-0.5 rounded flex items-center gap-1">
+                            <svg className="w-2 h-2" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 3.8l6.8 13.7H5.2L12 5.8z"/></svg>
+                            Powered by Google Lighthouse
+                          </span>
+                        ) : (
+                          <span className="text-[8px] sm:text-[9px] text-foreground/40 font-sans tracking-normal bg-secondary px-1.5 py-0.5 rounded">
+                            Estimated from on-page technical signals
+                          </span>
+                        )
+                      )}
                     </div>
                     <div className="font-display text-2xl tracking-tight text-foreground">
                       {s.value}
@@ -187,6 +251,11 @@ export function AiAuditPreview() {
                     <div className="mt-2">
                       <ScoreBar value={s.value} status={s.status} />
                     </div>
+                    {s.reason && (
+                      <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
+                        {s.reason}
+                      </p>
+                    )}
                   </motion.div>
                 ))}
               </div>

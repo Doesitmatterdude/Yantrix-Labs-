@@ -6,17 +6,19 @@ export interface AuditData {
   businessName: string;
   overallScore: number;
   scores: {
-    technical: number;
-    seo: number;
-    ai: number;
-    conversion: number;
-    competitive: number;
+    technical: { score: number; reason: string };
+    seo: { score: number; reason: string };
+    ai: { score: number; reason: string };
+    conversion: { score: number; reason: string };
+    competitive: { score: number; reason: string };
   };
   issues: string[];
   recommendations: {
     text: string;
     impact: string;
   }[];
+  signalsSummary?: string;
+  signals?: any; // typed in html-analyzer
 }
 
 interface AuditContextType {
